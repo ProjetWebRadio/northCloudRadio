@@ -9,36 +9,40 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(nullable = false, length=30)
+
+	@Column(nullable = false, length = 30)
 	private String name;
-	
-	@Column(nullable = false, length=30)
+
+	@Column(nullable = false, length = 30)
 	private String lastname;
-	
-	@Column(nullable = false, length=30)
+
+	@Column(nullable = false, length = 30, unique=true)
 	private String email;
-	
-	@Column(nullable = false, length=30)
+
+	@Column(nullable = false, length = 30, unique=true)
 	private String username;
-	
-	@Column(nullable = false, length=30)
+
+	@Column(nullable = false, length = 30)
 	private String password;
-	
-	@Column(nullable = false)
+
+	@Column
 	private boolean artiste;
-	
+
+	@Column
+	private boolean admin;
+
 	@Version
-	int version;
-	
+	private int version;
+
 	public User() {
 		this.artiste = false;
+		this.admin = false;
 	}
 
 	public Long getId() {
@@ -96,6 +100,13 @@ public class User {
 	public void setArtiste(boolean artiste) {
 		this.artiste = artiste;
 	}
-	
-	
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
 }

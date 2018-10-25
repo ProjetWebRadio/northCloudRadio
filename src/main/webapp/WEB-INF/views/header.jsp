@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<base
+	href="<%=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+					+ request.getContextPath() + "/"%>" />
 <title>${ param.title }</title>
 <!--Bootstrap CSS-->
 <link rel="stylesheet"

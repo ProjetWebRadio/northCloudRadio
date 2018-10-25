@@ -8,40 +8,44 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Version;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "song")
 public class Song {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(nullable = false)
-	private String url;
+	private String name;
 
-	@ManyToOne
-	private Category category;
+	@Column
+	private String category;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
 
 	@Version
-    private int version;
-	
+	private int version;
+
+	@Transient
+	private MultipartFile file;
+
 	public Song() {
 	}
 
-	public Song(String url, Category category, User user) {
-		this.url = url;
+	public Song(String category, User user) {
 		this.category = category;
 		this.user = user;
 	}
 
-	public Song(Long id, String url, Category category, User user) {
+	public Song(Long id, String category, User user) {
 		this.id = id;
-		this.url = url;
 		this.category = category;
 		this.user = user;
 	}
@@ -54,19 +58,19 @@ public class Song {
 		this.id = id;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getName() {
+		return name;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 
@@ -76,6 +80,14 @@ public class Song {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 
 }

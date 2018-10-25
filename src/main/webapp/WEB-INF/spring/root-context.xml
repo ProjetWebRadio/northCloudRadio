@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
@@ -12,8 +13,10 @@
 	<!-- datasource locale -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/northcloudradio" />
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://127.0.0.1:3306/northcloudradio" />
 		<property name="username" value="root" />
 		<property name="password" value="" />
 	</bean>
@@ -72,23 +75,24 @@
 		<property name="autodetectDataSource" value="true" />
 	</bean>
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
 
 
 
 	<!-- surcouche de l'entityManager => HibernateTemplate -->
-	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+	<bean id="hibernateTemplate"
+		class="org.springframework.orm.hibernate5.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
-	<!-- DAO 
-	<bean id="productDb" class="fr.dawan.springmvc.dao.ProductDb">
-		<property name="hibernateTemplate" ref="hibernateTemplate" />
-	</bean>
-	-->
+
+	<!-- DAO <bean id="productDb" class="fr.dawan.springmvc.dao.ProductDb"> 
+		<property name="hibernateTemplate" ref="hibernateTemplate" /> </bean> -->
 	<!-- DAO -->
 	<bean id="userDao" class="fr.dawan.northCloud.dao.UserDao">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
-	
+	<bean id="songDao" class="fr.dawan.northCloud.dao.SongDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
 </beans>

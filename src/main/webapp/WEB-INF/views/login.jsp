@@ -14,16 +14,12 @@
 
 
 <form:form method="post" action="check-login" modelAttribute="login-form">
-	<form:label path="username">
-		<spring:message code="login.usernameLabel" />
-	</form:label>
+	<form:label path="username">Email :</form:label>
 	<form:input path="username" />
 		
 	<br />
 	
-	<form:label path="password">
-		<spring:message code="login.passwordLabel" />
-	</form:label>
+	<form:label path="password">Mot de passe :</form:label>
 	<form:password path="password" />
 	<br />
 	<input type="submit" value="Connect" />

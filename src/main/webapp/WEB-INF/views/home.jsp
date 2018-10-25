@@ -4,7 +4,9 @@
 </jsp:include>
 
 <!-- Main  -->
-
+<c:if test="${not empty user_id }">
+	<c:out value="${user_id }"></c:out>
+</c:if>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 text-center">

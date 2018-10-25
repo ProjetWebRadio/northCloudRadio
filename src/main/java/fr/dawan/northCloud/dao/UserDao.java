@@ -1,4 +1,5 @@
 package fr.dawan.northCloud.dao;
+
 import java.util.List;
 
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -13,52 +14,47 @@ public class UserDao {
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	@Transactional(readOnly=true)
-	public List<User> findAll(){
-		return (List<User>)hibernateTemplate.find("FROM User");
+	@Transactional(readOnly = true)
+	public List<User> findAll() {
+		return (List<User>) hibernateTemplate.find("FROM User");
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	@Transactional(readOnly=true)
-	public List<User> findAll(int start, int maxElts){
-		return hibernateTemplate.getSessionFactory().getCurrentSession()
-		.createQuery("FROM User")
-		.setFirstResult(start)
-		.setMaxResults(maxElts)
-		.list();
+	@Transactional(readOnly = true)
+	public List<User> findAll(int start, int maxElts) {
+		return hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("FROM User").setFirstResult(start)
+				.setMaxResults(maxElts).list();
 	}
-	
-	
-	@Transactional(readOnly=true)
-	public User findById(int id) {
+
+	@Transactional(readOnly = true)
+	public User findById(long id) {
 		return hibernateTemplate.get(User.class, id);
 	}
-	
+
 	@Transactional
-	public void save(User p) {
+	public void save(User p) throws Exception{
 		hibernateTemplate.save(p);
 	}
-	
+
 	@Transactional
 	public void update(User p) {
 		hibernateTemplate.saveOrUpdate(p);
 	}
-	
-	@Transactional(readOnly=true)
+
+	@Transactional(readOnly = true)
 	public long nbUsers() {
-		return (Long)hibernateTemplate.find("SELECT COUNT(c.id) FROM User c").get(0);
+		return (Long) hibernateTemplate.find("SELECT COUNT(c.id) FROM User c").get(0);
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
-	@Transactional(readOnly=true)
-	public User findByEmail(String email){
+	@Transactional(readOnly = true)
+	public User findByEmail(String email) {
 		List<User> users = (List<User>) hibernateTemplate.find("FROM User u WHERE u.email= ?", email);
-		if(users!=null && users.size()>0)
+		if (users != null && users.size() > 0)
 			return users.get(0);
-		
+
 		return null;
 	}
 }
