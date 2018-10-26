@@ -26,7 +26,7 @@ public class AudioRestController {
 		Song song = songs.get(songNumber);
 		
 		String nextFile = BucketManager.BUCKET_URL + song.getName();
-		String mimeType = MimeTools.getTypeMime(nextFile);
+		String mimeType = MimeTools.getTypeMime(song.getOriginalName());
 		return "{\"src\":\""+nextFile+"\", \"type\":\""+mimeType+"\"}";
 	}
 }
