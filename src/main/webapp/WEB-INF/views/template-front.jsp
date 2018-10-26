@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,12 +49,13 @@
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="artiste">Artiste</a></li>
 					<li class="nav-item"><a class="nav-link" href="upload">Upload</a></li>
-					<li class="nav-item"><a class="nav-link" href="liste">Liste des morceaux</a></li>
+					<li class="nav-item"><a class="nav-link" href="artists">Liste des artistes</a></li>
+					<li class="nav-item"><a class="nav-link" href="songs">Liste des morceaux</a></li>
+					<li class="nav-item"><a class="nav-link" href="authenticate">Connexion</a></li>
 				    <li class="nav-item"><a class="nav-link" href="inscription">Inscription</a></li>
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search">
+				<form class="form-inline my-2 my-lg-0" method="get" action="songs/search">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search" name="artistName" />
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</div>

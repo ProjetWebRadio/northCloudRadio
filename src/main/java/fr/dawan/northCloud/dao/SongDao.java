@@ -10,7 +10,7 @@ import fr.dawan.northCloud.beans.Song;
 import fr.dawan.northCloud.utils.BucketManager;
 
 public class SongDao {
-	private HibernateTemplate hibernateTemplate;
+	private  HibernateTemplate hibernateTemplate;
 
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
@@ -52,9 +52,10 @@ public class SongDao {
 
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public List<Song> fingByArtistName(String artistName) {
+	public List<Song> findByArtistName(String artistName) {
 		List<Song> songs = (List<Song>) hibernateTemplate
-				.find("SELECT s FROM Song s WHERE s.user.username = :artistName");
+				.find("SELECT s FROM Song s WHERE s.user.username = ?", artistName);
 		return songs;
 	}
+
 }
