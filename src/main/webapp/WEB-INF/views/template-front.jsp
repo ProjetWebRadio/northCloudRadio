@@ -48,7 +48,9 @@
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="artiste">Artiste</a></li>
 					<li class="nav-item"><a class="nav-link" href="upload">Upload</a></li>
-					<li class="nav-item"><a class="nav-link" href="liste">Liste des morceaux</a></li>
+					<li class="nav-item"><a class="nav-link" href="artists">Liste des artistes</a></li>
+					<li class="nav-item"><a class="nav-link" href="songs">Liste des morceaux</a></li>
+					<li class="nav-item"><a class="nav-link" href="authenticate">Connexion</a></li>
 				    <li class="nav-item"><a class="nav-link" href="inscription">Inscription</a></li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">

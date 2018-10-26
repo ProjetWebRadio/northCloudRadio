@@ -24,7 +24,6 @@ public class AudioRestController {
 		List<Song> songs = songDao.findAll();
 		int songNumber = (int) (Math.random() * songs.size());
 		Song song = songs.get(songNumber);
-		
 		String nextFile = BucketManager.BUCKET_URL + song.getName();
 		String mimeType = MimeTools.getTypeMime(song.getOriginalName());
 		return "{\"src\":\""+nextFile+"\", \"type\":\""+mimeType+"\"}";

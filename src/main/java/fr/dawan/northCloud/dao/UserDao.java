@@ -27,6 +27,19 @@ public class UserDao {
 		return hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("FROM User").setFirstResult(start)
 				.setMaxResults(maxElts).list();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
+	public List<User> findAllArtists() {
+		return (List<User>) hibernateTemplate.find("FROM User u WHERE u.artiste = 1");
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
+	public List<User> findAllArtists(int start, int maxElts) {
+		return hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("FROM User u WHERE u.artiste = 1").setFirstResult(start)
+				.setMaxResults(maxElts).list();
+	}
 
 	@Transactional(readOnly = true)
 	public User findById(long id) {
