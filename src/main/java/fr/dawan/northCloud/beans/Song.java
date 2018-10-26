@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
@@ -33,11 +34,17 @@ public class Song {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
 
+	@Column
+	private String cover;
+
 	@Version
 	private int version;
 
 	@Transient
-	private MultipartFile file;
+	private MultipartFile songFile;
+
+	@Transient
+	private MultipartFile coverFile;
 
 	public Song() {
 	}
@@ -93,12 +100,28 @@ public class Song {
 		this.user = user;
 	}
 
-	public MultipartFile getFile() {
-		return file;
+	public String getCover() {
+		return cover;
 	}
 
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setCover(String cover) {
+		this.cover = cover;
+	}
+
+	public MultipartFile getSongFile() {
+		return songFile;
+	}
+
+	public void setSongFile(MultipartFile songFile) {
+		this.songFile = songFile;
+	}
+
+	public MultipartFile getCoverFile() {
+		return coverFile;
+	}
+
+	public void setCoverFile(MultipartFile coverFile) {
+		this.coverFile = coverFile;
 	}
 
 }

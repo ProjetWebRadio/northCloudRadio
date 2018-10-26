@@ -52,27 +52,32 @@ public class UploadController {
 			model.put("upload-form", form);
 			return new ModelAndView("upload", model);
 		}
-		
+
 		user = userDao.findById((long) request.getSession().getAttribute("user_id"));
-		String mimeType = MimeTools.getTypeMime(form.getFile().getOriginalFilename());
+		String mimeType = MimeTools.getTypeMime(form.getSongFile().getOriginalFilename());
+
 		if (mimeType != null) {
-			s.setFile(form.getFile());
-			s.setOriginalName(form.getFile().getOriginalFilename());
+			s.setSongFile(form.getSongFile());
+			s.setOriginalName(form.getSongFile().getOriginalFilename());
 			s.setName(form.getName());
 			s.setUser(user);
 			s.setCategory(form.getCategory());
+			if (form.getCoverFile() != null) {
+				s.setCoverFile(form.getCoverFile());
+				s.setCover(form.getCoverFile().getOriginalFilename());
+			}
+			try {
+				songDao.save(s);
+			} catch (IOException e) {
+				model.put("msg", "Erreur: impossible d'upload le fichier");
+			}
 		} else {
 			model.put("msg", "Erreur: le fichier n'est pas un fichier audio");
 			return new ModelAndView("upload", model);
-		}
-		try {
-			BucketManager.saveFile(s);
-			songDao.save(s);
-		} catch (IOException e) {
-			model.put("msg", "Erreur: impossible d'upload le fichier");
 		}
 
 		model.put("upload-form", form);
 		return new ModelAndView("upload", model);
 	}
+
 }

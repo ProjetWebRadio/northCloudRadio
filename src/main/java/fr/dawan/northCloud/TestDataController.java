@@ -1,5 +1,6 @@
 package fr.dawan.northCloud;
 
+import java.io.IOException;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +39,7 @@ public class TestDataController {
 			e.printStackTrace();
 		}
 
-		Song s1 = new Song();
-		s1.setCategory("RAP");
-		s1.setUser(u1);
-		songDao.save(s1);
+		
 
 		return "home";
 	}

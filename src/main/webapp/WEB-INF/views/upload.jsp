@@ -26,10 +26,13 @@
 					<form:label path="category">Catégorie :</form:label>
 					<form:input path="category" />
 					<br>
-					<form:label path="file">Choisir un fichier :</form:label>
-					<input type="file" id="file" name="file">
+					<form:label path="songFile">Choisir une musique :</form:label>
+					<input type="file" id="songFile" name="songFile">
+					
+						<br>
+					<form:label path="coverFile">Choisir une cover :</form:label>
+					<input type="file" id="coverFile" name="coverFile">
 					<br>
-
 					<input type="submit" value="Upload" />
 
 
@@ -37,7 +40,8 @@
 			</div>
 		</div>
 	</div>
-	<div style="color: red;">
+		<c:if test="${ errors != null }">
+	<div class="alert alert-danger">
 		<spring:hasBindErrors name="upload-form">
 			<c:forEach var="err" items="${errors.allErrors}">
 				<c:out value="${err.field}" /> :
@@ -45,6 +49,8 @@
 				<br />
 			</c:forEach>
 		</spring:hasBindErrors>
+		
 	</div>
+	</c:if>
 </section>
 

@@ -4,9 +4,7 @@
 <div class="row">
 	<div class="col-lg-12 text-center">
 		<div class="cover">
-			<img
-				src="http://rdironworks.com/wp-content/uploads/2017/12/dummy-200x200.png"
-				alt="..." class="img-thumbnail">
+			<img src="<c:url value="${cover}" />"alt="..." class="img-thumbnail">
 		</div>
 		<div class="lecteur">
 			<audio id="myAudioPlayer" controls>

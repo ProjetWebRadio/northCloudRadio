@@ -1,11 +1,13 @@
 package fr.dawan.northCloud.dao;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.dawan.northCloud.beans.Song;
+import fr.dawan.northCloud.utils.BucketManager;
 
 public class SongDao {
 	private HibernateTemplate hibernateTemplate;
@@ -33,7 +35,8 @@ public class SongDao {
 	}
 
 	@Transactional
-	public void save(Song s) {
+	public void save(Song s) throws IOException {
+		BucketManager.saveFile(s);
 		hibernateTemplate.save(s);
 	}
 

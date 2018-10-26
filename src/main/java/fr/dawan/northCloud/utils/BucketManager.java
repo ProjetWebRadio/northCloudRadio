@@ -25,10 +25,12 @@ public final class BucketManager {
 
 	/**
 	 * Permet de récupérer un fichier depuis le bucket sur Amazon S3
-	 * @param fileKeyName La clé du fichier dans le bucket
+	 * 
+	 * @param fileKeyName
+	 *            La clé du fichier dans le bucket
 	 * @return Un InputStream sur le fichier demandé
 	 */
-	public static InputStream getObjectFromBucket(String fileKeyName){
+	public static InputStream getObjectFromBucket(String fileKeyName) {
 		final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_WEST_3)
 				.withCredentials(new ProfileCredentialsProvider()).build();
 		S3Object object = s3.getObject(BUCKET_NAME, fileKeyName);
@@ -39,7 +41,13 @@ public final class BucketManager {
 	public static void saveFile(Song s) throws IOException {
 		final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_WEST_3)
 				.withCredentials(new ProfileCredentialsProvider()).build();
-		File f = MultipartFileToFile.convert(s.getFile());
-		s3.putObject(new PutObjectRequest(BUCKET_NAME, s.getName(), f).withCannedAcl(CannedAccessControlList.PublicRead));
+		File song = MultipartFileToFile.convert(s.getSongFile());
+		s3.putObject(
+				new PutObjectRequest(BUCKET_NAME, s.getName(), song).withCannedAcl(CannedAccessControlList.PublicRead));
+		if (s.getCoverFile() != null) {
+			File cover = MultipartFileToFile.convert(s.getCoverFile());
+			s3.putObject(new PutObjectRequest(BUCKET_NAME, s.getCover(), cover)
+					.withCannedAcl(CannedAccessControlList.PublicRead));
+		}
 	}
 }

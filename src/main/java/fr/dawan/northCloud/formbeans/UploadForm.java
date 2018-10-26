@@ -12,8 +12,10 @@ public class UploadForm {
 	
 	private String category;
 	
+	private MultipartFile coverFile;
+	
 	@NotNull
-	private MultipartFile file;
+	private MultipartFile songFile;
 
 	public String getName() {
 		return name;
@@ -31,11 +33,20 @@ public class UploadForm {
 		this.category = category;
 	}
 
-	public MultipartFile getFile() {
-		return file;
+	public MultipartFile getCoverFile() {
+		return coverFile;
 	}
 
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}	
+	public void setCoverFile(MultipartFile coverFile) {
+		this.coverFile = coverFile;
+	}
+
+	public MultipartFile getSongFile() {
+		return songFile;
+	}
+
+	public void setSongFile(MultipartFile songFile) {
+		this.songFile = songFile;
+	}
+	
 }
