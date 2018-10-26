@@ -1,13 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ page session="false" isELIgnored="false" contentType="text/html; charset=UTF-8" %>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Home</title>
-</head>
-<body>
+<%@ page isELIgnored="false" contentType="text/html; charset=UTF-8" %>
+
 <h1>
 	Authentication
 </h1>

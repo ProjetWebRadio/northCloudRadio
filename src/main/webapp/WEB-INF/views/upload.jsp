@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<jsp:include page="header.jsp" />
+
 
 <!-- Contact -->
 <section id="contact">
@@ -22,7 +21,7 @@
 					<form:label path="name">Nom du morceau :</form:label>
 					<form:input path="name" />
 					<br>
-					<form:label path="category">Catégorie :</form:label>
+					<form:label path="category">CatÃ©gorie :</form:label>
 					<form:input path="category" />
 					<br>
 					<form:label path="file">Choisir un fichier :</form:label>
@@ -45,5 +44,3 @@
 	</div>
 </section>
 
-
-<jsp:include page="footer.jsp" />

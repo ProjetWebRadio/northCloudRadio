@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +27,15 @@ public class LoginController {
 	private UserDao userDao;
 
 	@RequestMapping("/authenticate") // @requestMapping(value="/autenticate", method=RequestMethod.GET)
-	public ModelAndView showLogin() {
-		Map<String, Object> model = new HashMap<>();
-		LoginForm lf = new LoginForm("", "");
-		model.put("login-form", lf);
-		return new ModelAndView("login", model);
+	public String showLogin(HttpServletRequest request, Model model) {
+		Object obj = request.getSession().getAttribute("myModel");
+		if(obj!=null)
+			model = (Model)obj;
+		else {
+			LoginForm lf = new LoginForm("", "");
+			model.addAttribute("login-form", lf);
+		}
+		return "login";
 	}
 
 	@RequestMapping(value = "/check-login", method = RequestMethod.POST)
@@ -41,16 +46,19 @@ public class LoginController {
 		if (result.hasErrors()) {
 			model.put("errors", result);
 			model.put("login-form", form);
-			return new ModelAndView("login", model);
+			request.getSession().setAttribute("myModel", model);
+			return new ModelAndView("redirect:/authenticate");
+			//return new ModelAndView("login", model);
 		}
 
 		User u = userDao.findByEmail(form.getUsername());
 		if (u != null && u.getPassword().equals(form.getPassword())) {
 			request.getSession().setAttribute("user_id", u.getId());
+			request.getSession().setAttribute("user_name", u.getName());
 //			if(u.isAdmin())
 //				return new ModelAndView("admin/dashboard");
 //			else
-			return new ModelAndView("home");
+			return new ModelAndView("redirect:/");
 
 		} else {
 			model.put("login-form", form);
