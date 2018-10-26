@@ -39,6 +39,7 @@ public class TestDataController {
 		}
 
 		Song s1 = new Song();
+		s1.setName("toto");
 		s1.setCategory("RAP");
 		s1.setUser(u1);
 		songDao.save(s1);
