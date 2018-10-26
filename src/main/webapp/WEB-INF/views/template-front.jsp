@@ -8,7 +8,7 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
    	<meta charset="utf-8" />
    
-    <title>Lille Culture Events</title>
+    <title>North Cloud Radio</title>
     
     <base href="<%=request.getScheme()+"://"+request.getServerName()+":" + request.getServerPort()+request.getContextPath()+"/" %>" />
 		

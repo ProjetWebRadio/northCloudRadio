@@ -24,6 +24,9 @@ public class Song {
 	@Column(nullable = false)
 	private String name;
 
+	@Column(nullable = false)
+	private String originalName;
+
 	@Column
 	private String category;
 
@@ -64,6 +67,14 @@ public class Song {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getOriginalName() {
+		return originalName;
+	}
+
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
 	}
 
 	public String getCategory() {

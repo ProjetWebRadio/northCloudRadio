@@ -7,8 +7,6 @@ public class MimeTools {
 			return "audio/mp3";
 		else if(fileName.endsWith(".ogg"))
 			return "audio/ogg";
-		
 		return null;
-		
 	}
 }
