@@ -21,6 +21,7 @@ import fr.dawan.northCloud.dao.SongDao;
 import fr.dawan.northCloud.dao.UserDao;
 import fr.dawan.northCloud.formbeans.UploadForm;
 import fr.dawan.northCloud.utils.BucketManager;
+import fr.dawan.northCloud.utils.MimeTools;
 
 @Controller
 public class UploadController {
@@ -51,13 +52,19 @@ public class UploadController {
 			model.put("upload-form", form);
 			return new ModelAndView("upload", model);
 		}
-
+		
 		user = userDao.findById((long) request.getSession().getAttribute("user_id"));
-		s.setFile(form.getFile());
-		s.setName(form.getName());
-		s.setUser(user);
-		s.setCategory(form.getCategory());
-
+		String mimeType = MimeTools.getTypeMime(form.getFile().getOriginalFilename());
+		if (mimeType != null) {
+			s.setFile(form.getFile());
+			s.setOriginalName(form.getFile().getOriginalFilename());
+			s.setName(form.getName());
+			s.setUser(user);
+			s.setCategory(form.getCategory());
+		} else {
+			model.put("msg", "Erreur: le fichier n'est pas un fichier audio");
+			return new ModelAndView("upload", model);
+		}
 		try {
 			BucketManager.saveFile(s);
 			songDao.save(s);

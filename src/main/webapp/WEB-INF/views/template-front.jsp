@@ -9,7 +9,7 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
    	<meta charset="utf-8" />
    
-    <title>Lille Culture Events</title>
+    <title>North Cloud Radio</title>
     
     <base href="<%=request.getScheme()+"://"+request.getServerName()+":" + request.getServerPort()+request.getContextPath()+"/" %>" />
 		
@@ -45,7 +45,7 @@
 
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-					<li class="nav-item active"><a class="nav-link" href="index.jsp">Home
+					<li class="nav-item active"><a class="nav-link" href="">Home
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="artiste">Artiste</a></li>
 					<li class="nav-item"><a class="nav-link" href="upload">Upload</a></li>
