@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.dawan.northCloud.beans.Song;
 import fr.dawan.northCloud.dao.SongDao;
+import fr.dawan.northCloud.utils.BucketManager;
 
 @Controller
 public class SongController {
@@ -33,19 +34,29 @@ public class SongController {
 		}
 		model.put("songs", songs);
 		return new ModelAndView("songs", model);
-
 	}
 
-	
 	@RequestMapping(value = "/songs", method = RequestMethod.GET)
 	public ModelAndView listAllSongs() {
 		Map<String, Object> model = new HashMap<>();
 		List<Song> songs = songDao.findAll();
 		model.put("songs", songs);
 		return new ModelAndView("songs", model);
-
 	}
-	
-	
-	
+
+	@RequestMapping(value = "/songs/play", method = RequestMethod.GET)
+	public ModelAndView playSong(@RequestParam(name = "id", required = false) String songId) {
+		Map<String, Object> model = new HashMap<>();
+		try {
+			Song song = songDao.findById(Long.parseLong(songId));
+			String songUrl = BucketManager.BUCKET_URL + song.getName();
+			String coverUrl = BucketManager.BUCKET_URL + song.getCover();
+			model.put("songUrl", songUrl);
+			model.put("coverUrl", coverUrl);
+			return new ModelAndView("song-play", model);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ModelAndView("redirect:/");
+		}
+	}
 }

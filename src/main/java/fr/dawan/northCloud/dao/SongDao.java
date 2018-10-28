@@ -30,7 +30,7 @@ public class SongDao {
 	}
 
 	@Transactional(readOnly = true)
-	public Song findById(int id) {
+	public Song findById(long id) {
 		return hibernateTemplate.get(Song.class, id);
 	}
 

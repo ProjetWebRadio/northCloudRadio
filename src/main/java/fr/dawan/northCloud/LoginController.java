@@ -54,7 +54,7 @@ public class LoginController {
 		User u = userDao.findByEmail(form.getUsername());
 		if (u != null && u.getPassword().equals(form.getPassword())) {
 			request.getSession().setAttribute("user_id", u.getId());
-			request.getSession().setAttribute("user_name", u.getName());
+			request.getSession().setAttribute("user_name", u.getUsername());
 //			if(u.isAdmin())
 //				return new ModelAndView("admin/dashboard");
 //			else
