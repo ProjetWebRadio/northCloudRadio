@@ -47,13 +47,13 @@ public class UserDao {
 	}
 
 	@Transactional
-	public void save(User p) throws Exception{
-		hibernateTemplate.save(p);
+	public void save(User u) throws Exception{
+		hibernateTemplate.save(u);
 	}
 
 	@Transactional
-	public void update(User p) {
-		hibernateTemplate.saveOrUpdate(p);
+	public void update(User u) {
+		hibernateTemplate.saveOrUpdate(u);
 	}
 
 	@Transactional(readOnly = true)

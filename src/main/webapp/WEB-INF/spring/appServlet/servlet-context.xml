@@ -59,6 +59,7 @@
 
 		<beans:bean id="loginInterceptor"
 			class="fr.dawan.northCloud.LoginInterceptor" />
-
+		<beans:bean id="adminInterceptor"
+			class="fr.dawan.northCloud.AdminInterceptor" />
 	</interceptors>
 </beans:beans>

@@ -8,7 +8,7 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
    	<meta charset="utf-8" />
    
-    <title>Lille Culture Events</title>
+    <title>North Cloud Radio</title>
     
     <base href="<%=request.getScheme()+"://"+request.getServerName()+":" + request.getServerPort()+request.getContextPath()+"/" %>" />
 		
@@ -51,15 +51,8 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
             </li>
-            
             <li class="nav-item">
-              <a class="nav-link" href="authenticate">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="signup">S'inscrire</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact">Contact</a>
+              <a class="nav-link" href="disconnect">Déconnexion</a>
             </li>
           </ul>
         </div>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import fr.dawan.northCloud.beans.Song;
 import fr.dawan.northCloud.dao.SongDao;
 
@@ -48,8 +49,8 @@ public class SongController {
 		Map<String, Object> model = new HashMap<>();
 		try {
 			Song song = songDao.findById(Long.parseLong(songId));
-			String songUrl = song.getBucketPath();
-			String coverUrl = song.getCoverBucketPath();
+			String songUrl = song.getUrl();
+			String coverUrl = song.getCoverUrl();
 			model.put("songUrl", songUrl);
 			model.put("coverUrl", coverUrl);
 			return new ModelAndView("song-play", model);

@@ -31,11 +31,14 @@ public class User {
 	@Column(nullable = false, length = 30)
 	private String password;
 
-	@Column
+	@Column(nullable = false)
 	private boolean artiste;
 
-	@Column
+	@Column(nullable = false)
 	private boolean admin;
+	
+	@Column(nullable = false)
+	private boolean blocked;
 
 	@Version
 	private int version;
@@ -43,6 +46,7 @@ public class User {
 	public User() {
 		this.artiste = false;
 		this.admin = false;
+		this.blocked = false;
 	}
 
 	public Long getId() {
@@ -107,6 +111,14 @@ public class User {
 
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
+	}
+
+	public boolean isBlocked() {
+		return blocked;
+	}
+
+	public void setBlocked(boolean blocked) {
+		this.blocked = blocked;
 	}
 
 }

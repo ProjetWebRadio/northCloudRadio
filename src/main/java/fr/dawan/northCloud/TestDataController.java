@@ -1,6 +1,5 @@
 package fr.dawan.northCloud;
 
-import java.io.IOException;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import fr.dawan.northCloud.beans.Song;
 import fr.dawan.northCloud.beans.User;
 import fr.dawan.northCloud.dao.SongDao;
 import fr.dawan.northCloud.dao.UserDao;
