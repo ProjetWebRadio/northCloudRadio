@@ -55,7 +55,7 @@ public class UploadController {
 
 		user = userDao.findById((long) request.getSession().getAttribute("user_id"));
 		String mimeType = MimeTools.getTypeMime(form.getSongFile().getOriginalFilename());
-
+		//Si le type MIME du fichier correspond à celui d'un fichier audio, alors on tente de l'ajouter
 		if (mimeType != null) {
 			s.setSongFile(form.getSongFile());
 			s.setOriginalName(form.getSongFile().getOriginalFilename());
