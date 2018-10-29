@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,8 +43,8 @@ public class SongController {
 		return new ModelAndView("songs", model);
 	}
 
-	@RequestMapping(value = "/songs/play", method = RequestMethod.GET)
-	public ModelAndView playSong(@RequestParam(name = "id", required = false) String songId) {
+	@RequestMapping(value = "/songs/play/{id}", method = RequestMethod.GET)
+	public ModelAndView playSong(@PathVariable(name="id") String songId) {
 		Map<String, Object> model = new HashMap<>();
 		try {
 			Song song = songDao.findById(Long.parseLong(songId));

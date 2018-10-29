@@ -24,7 +24,7 @@
 <div style="color:red;">
 	<spring:hasBindErrors name="login-form">
 		<c:forEach var="err" items="${errors.allErrors}">
-			<c:out value="${err.field}" /> :
+			<c:out value="${err.field}"/> :
 			<c:out value="${err.defaultMessage}" /> 
 			<br />
 		</c:forEach>

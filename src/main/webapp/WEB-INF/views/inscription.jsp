@@ -31,3 +31,13 @@
 		<input type="submit" value="S'inscrire" />
 	</form:form>
 
+<div style="color:red;">
+	<spring:hasBindErrors name="inscription-form">
+		<c:forEach var="err" items="${errors.allErrors}">
+			<c:out value="${err.field}"/> :
+			<c:out value="${err.defaultMessage}" /> 
+			<br />
+		</c:forEach>
+	</spring:hasBindErrors>
+</div>
+

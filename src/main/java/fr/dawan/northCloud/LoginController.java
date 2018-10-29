@@ -8,7 +8,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,16 +25,19 @@ public class LoginController {
 	@Autowired
 	private UserDao userDao;
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/authenticate") // @requestMapping(value="/autenticate", method=RequestMethod.GET)
-	public String showLogin(HttpServletRequest request, Model model) {
+	public ModelAndView showLogin(HttpServletRequest request) {
 		Object obj = request.getSession().getAttribute("myModel");
+		Map<String, Object> model = new HashMap<>();
 		if(obj!=null)
-			model = (Model)obj;
+			model = (Map<String, Object> )obj;
 		else {
 			LoginForm lf = new LoginForm("", "");
-			model.addAttribute("login-form", lf);
+			model.put("login-form", lf);
 		}
-		return "login";
+		request.getSession().removeAttribute("myModel");
+		return new ModelAndView("login", model);
 	}
 
 	@RequestMapping(value = "/check-login", method = RequestMethod.POST)
@@ -48,7 +50,6 @@ public class LoginController {
 			model.put("login-form", form);
 			request.getSession().setAttribute("myModel", model);
 			return new ModelAndView("redirect:/authenticate");
-			//return new ModelAndView("login", model);
 		}
 
 		User u = userDao.findByEmail(form.getUsername());
@@ -68,22 +69,30 @@ public class LoginController {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/inscription")
-	public ModelAndView inscription() {
+	public ModelAndView inscription(HttpServletRequest request) {
+		Object obj = request.getSession().getAttribute("myModel");
 		Map<String, Object> model = new HashMap<>();
-		InscriptionForm form = new InscriptionForm();
-		model.put("inscription-form", form);
+		if(obj!=null)
+			model = (Map<String, Object> )obj;
+		else {
+			InscriptionForm form = new InscriptionForm();
+			model.put("inscription-form", form);
+		}
+		request.getSession().removeAttribute("myModel");
 		return new ModelAndView("inscription", model);
 	}
 
 	@RequestMapping("check-inscription")
-	public ModelAndView checkInscription(@Valid @ModelAttribute("inscription-form") InscriptionForm form,
+	public ModelAndView checkInscription(HttpServletRequest request, @Valid @ModelAttribute("inscription-form") InscriptionForm form,
 			BindingResult result) {
 		Map<String, Object> model = new HashMap<>();
 		if (result.hasErrors()) {
 			model.put("errors", result);
 			model.put("inscription-form", form);
-			return new ModelAndView("inscription", model);
+			request.getSession().setAttribute("myModel", model);
+			return new ModelAndView("redirect:/inscription");
 		}
 		User user = new User();
 		user.setName(form.getName());
@@ -97,10 +106,10 @@ public class LoginController {
 			e.printStackTrace();
 			model.put("msg", "Erreur d'insertion, veuillez réessayer");
 			model.put("inscription-form", form);
-			return new ModelAndView("inscription", model);
+			return new ModelAndView("redirect:/inscription", model);
 		}
 
-		return new ModelAndView("home");
+		return new ModelAndView("redirect:/");
 	}
 
 	public UserDao getUserDao() {
