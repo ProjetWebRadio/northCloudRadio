@@ -25,7 +25,8 @@ public class AudioRestController {
 		int songNumber = (int) (Math.random() * songs.size());
 		Song song = songs.get(songNumber);
 		String nextFile = BucketManager.BUCKET_URL + song.getName();
+		String cover = BucketManager.BUCKET_URL + song.getCover();
 		String mimeType = MimeTools.getTypeMime(song.getOriginalName());
-		return "{\"src\":\""+nextFile+"\", \"type\":\""+mimeType+"\"}";
+		return "{\"src\":\""+nextFile+"\", \"type\":\""+mimeType+"\", \"cover\":\""+cover+ "\"}";
 	}
 }

@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 
-
+<c:out value="${user.name}"/>
 	<div class="row">
 		<div class="col-lg-12 text-center">
 			<h2 class="section-heading text-uppercase">Inscription</h2>

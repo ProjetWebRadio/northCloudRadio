@@ -23,6 +23,19 @@
 					<form:label path="name">Nom du morceau :</form:label>
 					<form:input path="name" />
 					<br>
+					<c:if test="${ errors != null }">
+						<div class="alert alert-danger">
+							<spring:hasBindErrors name="upload-form">
+								<c:forEach var="err" items="${errors.allErrors}">
+									<c:out value="${err.field}" /> :
+			<c:out value="${err.defaultMessage}" />
+									<br />
+								</c:forEach>
+							</spring:hasBindErrors>
+
+						</div>
+					</c:if>
+					<br>
 					<form:label path="category">Catégorie :</form:label>
 					<form:input path="category" />
 					<br>
@@ -40,17 +53,6 @@
 			</div>
 		</div>
 	</div>
-	<c:if test="${ errors != null }">
-		<div class="alert alert-danger">
-			<spring:hasBindErrors name="upload-form">
-				<c:forEach var="err" items="${errors.allErrors}">
-					<c:out value="${err.field}" /> :
-			<c:out value="${err.defaultMessage}" />
-					<br />
-				</c:forEach>
-			</spring:hasBindErrors>
 
-		</div>
-	</c:if>
 </section>
 
