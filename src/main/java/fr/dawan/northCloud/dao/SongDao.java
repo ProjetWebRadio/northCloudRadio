@@ -10,7 +10,7 @@ import fr.dawan.northCloud.beans.Song;
 import fr.dawan.northCloud.utils.BucketManager;
 
 public class SongDao {
-	private  HibernateTemplate hibernateTemplate;
+	private HibernateTemplate hibernateTemplate;
 
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
@@ -36,8 +36,13 @@ public class SongDao {
 
 	@Transactional
 	public void save(Song s) throws IOException {
-		BucketManager.saveFile(s);
 		hibernateTemplate.save(s);
+		try {
+			BucketManager.saveFile(s);
+		} catch (IOException e) {
+			hibernateTemplate.delete(s);
+			throw e;
+		}
 	}
 
 	@Transactional
@@ -53,9 +58,24 @@ public class SongDao {
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Song> findByArtistName(String artistName) {
-		List<Song> songs = (List<Song>) hibernateTemplate
-				.find("SELECT s FROM Song s WHERE s.user.username = ?", artistName);
+		List<Song> songs = (List<Song>) hibernateTemplate.find("SELECT s FROM Song s WHERE s.user.username = ?",
+				artistName);
 		return songs;
 	}
 
+	@Transactional
+	public void delete(Song s) {
+		try {
+			BucketManager.deleteFile(s);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		hibernateTemplate.delete(s);
+	}
+
+	@Transactional
+	public void deleteById(Long id) {
+		Song s = this.findById(id);
+		this.delete(s);
+	}
 }

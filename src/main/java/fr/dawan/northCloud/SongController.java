@@ -1,5 +1,6 @@
 package fr.dawan.northCloud;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,10 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import fr.dawan.northCloud.beans.Song;
 import fr.dawan.northCloud.dao.SongDao;
-import fr.dawan.northCloud.utils.BucketManager;
+
 
 @Controller
 public class SongController {
@@ -48,8 +48,8 @@ public class SongController {
 		Map<String, Object> model = new HashMap<>();
 		try {
 			Song song = songDao.findById(Long.parseLong(songId));
-			String songUrl = BucketManager.BUCKET_URL + song.getName();
-			String coverUrl = BucketManager.BUCKET_URL + song.getCover();
+			String songUrl = song.getBucketPath();
+			String coverUrl = song.getCoverBucketPath();
 			model.put("songUrl", songUrl);
 			model.put("coverUrl", coverUrl);
 			return new ModelAndView("song-play", model);
@@ -58,4 +58,11 @@ public class SongController {
 			return new ModelAndView("redirect:/");
 		}
 	}
+
+	@RequestMapping("/delete")
+	public ModelAndView delete(Long id) throws IOException {
+		songDao.deleteById(id);
+		return new ModelAndView("redirect:/profil");
+	}
+
 }
