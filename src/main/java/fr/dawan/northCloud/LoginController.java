@@ -19,28 +19,26 @@ import fr.dawan.northCloud.dao.UserDao;
 import fr.dawan.northCloud.formbeans.InscriptionForm;
 import fr.dawan.northCloud.formbeans.LoginForm;
 
+/**
+ * Controller utilisé pour l'inscription, la connexion et la déconnexion des
+ * utilisateurs.
+ */
 @Controller
 public class LoginController {
 
 	@Autowired
 	private UserDao userDao;
 
-	@SuppressWarnings("unchecked")
-	@RequestMapping("/authenticate") // @requestMapping(value="/autenticate", method=RequestMethod.GET)
+	@RequestMapping(value = "/authenticate", method = RequestMethod.GET) // @requestMapping(value="/autenticate",
+																			// method=RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request) {
-		Object obj = request.getSession().getAttribute("myModel");
 		Map<String, Object> model = new HashMap<>();
-		if(obj!=null)
-			model = (Map<String, Object> )obj;
-		else {
-			LoginForm lf = new LoginForm("", "");
-			model.put("login-form", lf);
-		}
-		request.getSession().removeAttribute("myModel");
+		LoginForm lf = new LoginForm("", "");
+		model.put("login-form", lf);
 		return new ModelAndView("login", model);
 	}
 
-	@RequestMapping(value = "/check-login", method = RequestMethod.POST)
+	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ModelAndView checkLogin(HttpServletRequest request, @Valid @ModelAttribute("login-form") LoginForm form,
 			BindingResult result) {
 		Map<String, Object> model = new HashMap<>();
@@ -48,8 +46,7 @@ public class LoginController {
 		if (result.hasErrors()) {
 			model.put("errors", result);
 			model.put("login-form", form);
-			request.getSession().setAttribute("myModel", model);
-			return new ModelAndView("redirect:/authenticate");
+			return new ModelAndView("login", model);
 		}
 
 		User u = userDao.findByEmail(form.getUsername());
@@ -69,30 +66,30 @@ public class LoginController {
 
 	}
 
-	@SuppressWarnings("unchecked")
-	@RequestMapping("/inscription")
+	@RequestMapping("/disconnect")
+	public ModelAndView disconnect(HttpServletRequest request) {
+		request.getSession().removeAttribute("user_name");
+		request.getSession().removeAttribute("user_id");
+		return new ModelAndView("redirect:/");
+	}
+
+	@RequestMapping(value = "/inscription", method = RequestMethod.GET)
 	public ModelAndView inscription(HttpServletRequest request) {
-		Object obj = request.getSession().getAttribute("myModel");
 		Map<String, Object> model = new HashMap<>();
-		if(obj!=null)
-			model = (Map<String, Object> )obj;
-		else {
-			InscriptionForm form = new InscriptionForm();
-			model.put("inscription-form", form);
-		}
-		request.getSession().removeAttribute("myModel");
+		InscriptionForm form = new InscriptionForm();
+		model.put("inscription-form", form);
+
 		return new ModelAndView("inscription", model);
 	}
 
-	@RequestMapping("check-inscription")
-	public ModelAndView checkInscription(HttpServletRequest request, @Valid @ModelAttribute("inscription-form") InscriptionForm form,
-			BindingResult result) {
+	@RequestMapping(value = "inscription", method = RequestMethod.POST)
+	public ModelAndView checkInscription(HttpServletRequest request,
+			@Valid @ModelAttribute("inscription-form") InscriptionForm form, BindingResult result) {
 		Map<String, Object> model = new HashMap<>();
 		if (result.hasErrors()) {
 			model.put("errors", result);
 			model.put("inscription-form", form);
-			request.getSession().setAttribute("myModel", model);
-			return new ModelAndView("redirect:/inscription");
+			return new ModelAndView("inscription", model);
 		}
 		User user = new User();
 		user.setName(form.getName());

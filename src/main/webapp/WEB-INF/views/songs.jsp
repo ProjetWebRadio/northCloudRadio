@@ -21,7 +21,7 @@
 					<td>${song.user.username }<td>
 				</c:if>
 				<td>
-					<a href="songs/play?id=${song.id }">Ecouter le morceau</a>
+					<a href="songs/play/${song.id }">Ecouter le morceau</a>
 				</td>
 			</tr>
 		</c:forEach>

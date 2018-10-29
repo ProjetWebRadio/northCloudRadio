@@ -11,21 +11,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-
-		// récupérer l'urlDemandee
+		//Teste si l'url demandée est /upload, et que la personne est connectée pour pouvoir upload un fichier
 		String requestedURI = request.getRequestURI();
-		// si l'url demandée est /achats alors
 		if (requestedURI.contains("/upload")) {
-			// récupérer la session
 			HttpSession session = request.getSession();
-			// tester la présence de isConnected
+			// Si l'utilisateur n'est pas connecté, on le renvoie sur la page de connexions
 			if (session.getAttribute("user_id") == null) {
-				request.getRequestDispatcher("authenticate").forward(request, response);
+				response.sendRedirect("authenticate");
 			}
-
-		} // fin si
-
+		} 
 		return true;
 	}
-
 }

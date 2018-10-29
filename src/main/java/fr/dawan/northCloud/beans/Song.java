@@ -14,6 +14,8 @@ import javax.persistence.Version;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import fr.dawan.northCloud.utils.BucketManager;
+
 @Entity
 @Table(name = "song")
 public class Song {
@@ -124,4 +126,19 @@ public class Song {
 		this.coverFile = coverFile;
 	}
 
+	public String getBucketKey() {
+		return this.getName() + "-" + this.getId();
+	}
+
+	public String getBucketPath() {
+		return BucketManager.BUCKET_URL + this.getBucketKey();
+	}
+
+	public String getCoverKey() {
+		return this.getCover() + "-" + this.getId();
+	}
+
+	public String getCoverBucketPath() {
+		return BucketManager.BUCKET_URL + this.getCoverKey();
+	}
 }

@@ -3,12 +3,12 @@ package fr.dawan.northCloud.utils;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.DeleteObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 
@@ -26,8 +26,7 @@ public final class BucketManager {
 	/**
 	 * Permet de récupérer un fichier depuis le bucket sur Amazon S3
 	 * 
-	 * @param fileKeyName
-	 *            La clé du fichier dans le bucket
+	 * @param fileKeyName La clé du fichier dans le bucket
 	 * @return Un InputStream sur le fichier demandé
 	 */
 	public static InputStream getObjectFromBucket(String fileKeyName) {
@@ -42,12 +41,22 @@ public final class BucketManager {
 		final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_WEST_3)
 				.withCredentials(new ProfileCredentialsProvider()).build();
 		File song = MultipartFileToFile.convert(s.getSongFile());
-		s3.putObject(
-				new PutObjectRequest(BUCKET_NAME, s.getName(), song).withCannedAcl(CannedAccessControlList.PublicRead));
+		s3.putObject(new PutObjectRequest(BUCKET_NAME, s.getBucketKey(), song)
+				.withCannedAcl(CannedAccessControlList.PublicRead));
 		if (s.getCoverFile() != null) {
 			File cover = MultipartFileToFile.convert(s.getCoverFile());
-			s3.putObject(new PutObjectRequest(BUCKET_NAME, s.getCover(), cover)
+			s3.putObject(new PutObjectRequest(BUCKET_NAME, s.getCoverKey(), cover)
 					.withCannedAcl(CannedAccessControlList.PublicRead));
 		}
+	}
+
+	public static void deleteFile(Song s) throws IOException {
+		final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_WEST_3)
+				.withCredentials(new ProfileCredentialsProvider()).build();
+		s3.deleteObject(new DeleteObjectRequest(BUCKET_NAME, s.getBucketKey()));
+		if (s.getCoverFile() != null) {
+			s3.deleteObject(new DeleteObjectRequest(BUCKET_NAME, s.getCoverKey()));
+		}
+
 	}
 }
