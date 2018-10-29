@@ -12,6 +12,7 @@ function searchNextSong(){
 			var obj = JSON.parse(data);
 			$("audio#myAudioPlayer source").attr("src",obj.src);
 			$("audio#myAudioPlayer source").attr("type",obj.type);
+			$("img#cover").attr("src", obj.cover);
 			
 			var myPlayer = document.querySelector("#myAudioPlayer");
 			myPlayer.load();//recharge la source
@@ -22,6 +23,8 @@ function searchNextSong(){
 }
 
 $(function(){
+	
+	searchNextSong();
 	
 	$("#myAudioPlayer").bind("ended",function(event){
 			searchNextSong();

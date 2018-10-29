@@ -61,7 +61,7 @@ public class UploadController {
 			s.setName(form.getName());
 			s.setUser(user);
 			s.setCategory(form.getCategory());
-			if (!form.getCoverFile().isEmpty()) {
+			if (form.getCoverFile() != null) {
 				s.setCoverFile(form.getCoverFile());
 				s.setCover(form.getCoverFile().getOriginalFilename());
 			}
