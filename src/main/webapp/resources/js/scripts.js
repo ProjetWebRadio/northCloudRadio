@@ -36,5 +36,12 @@ $(function(){
 				var myPlayer = document.querySelector("#myAudioPlayer");
 				myPlayer.stop();
 	});
+    
+	$("button#next").bind("click",function(event){
+		     searchNextSong();
+	});
 
+    $("button#previous").bind("click",function(event){
+		    searchNextSong();
+	});
 });

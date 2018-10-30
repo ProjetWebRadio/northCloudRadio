@@ -13,7 +13,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		//Teste si l'url demandée est /upload, et que la personne est connectée pour pouvoir upload un fichier
 		String requestedURI = request.getRequestURI();
-		if (requestedURI.contains("/upload")) {
+		if (requestedURI.contains("/upload") || requestedURI.contains("/profil")) {
 			HttpSession session = request.getSession();
 			// Si l'utilisateur n'est pas connecté, on le renvoie sur la page de connexions
 			if (session.getAttribute("user_id") == null) {
