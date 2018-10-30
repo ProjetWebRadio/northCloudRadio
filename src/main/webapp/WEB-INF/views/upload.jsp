@@ -17,25 +17,23 @@
 
 		<div class="row">
 			<div class="col-lg-12">
-				<c:out value="${msg}" />
+				<c:if test="${not empty successMsg }">
+					<div class="alert alert-success">
+						<c:out value="${successMsg }" />
+					</div>
+				</c:if>
+				<c:if test="${not empty errorMsg }">
+					<div class="alert alert-danger">
+						<c:out value="${errorMsg}" />
+					</div>
+				</c:if>
+
 				<form:form method="post" action="upload"
 					enctype="multipart/form-data" modelAttribute="upload-form">
 					<form:label path="name">Nom du morceau :</form:label>
 					<form:input path="name" />
 					<br>
-					<c:if test="${ errors != null }">
-						<div class="alert alert-danger">
-							<spring:hasBindErrors name="upload-form">
-								<c:forEach var="err" items="${errors.allErrors}">
-									<c:out value="${err.field}" /> :
-			<c:out value="${err.defaultMessage}" />
-									<br />
-								</c:forEach>
-							</spring:hasBindErrors>
 
-						</div>
-					</c:if>
-					<br>
 					<form:label path="category">Catégorie :</form:label>
 					<form:input path="category" />
 					<br>
@@ -47,9 +45,19 @@
 					<input type="file" id="coverFile" name="coverFile">
 					<br>
 					<input type="submit" value="Upload" />
-
-
 				</form:form>
+				<c:if test="${ errors != null }">
+					<div class="alert alert-danger">
+						<spring:hasBindErrors name="upload-form">
+							<c:forEach var="err" items="${errors.allErrors}">
+								<c:out value="${err.field}" /> :
+								<c:out value="${err.defaultMessage}" />
+								<br />
+							</c:forEach>
+						</spring:hasBindErrors>
+					</div>
+				</c:if>
+				<br>
 			</div>
 		</div>
 	</div>

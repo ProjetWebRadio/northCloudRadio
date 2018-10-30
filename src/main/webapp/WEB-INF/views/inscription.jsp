@@ -4,32 +4,34 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<div class="row">
+	
+	<div class="form-signin">
 	<div class="col-lg-12 text-center">
 		<h2 class="section-heading text-uppercase">Inscription</h2>
-	</div>
-</div>
+	
 <c:out value="${msg }" />
 <form:form method="post" action="inscription"
 	modelAttribute="inscription-form">
-	<form:label path="name">Prénom :</form:label>
-	<form:input path="name" />
+	
+	<form:label class="form-label" path="name">Prenom</form:label>
+	<form:input class="form-control" path="name"/>
 	<br>
-	<form:label path="lastname">Nom :</form:label>
-	<form:input path="lastname" />
+	<form:label class="form-label" path="lastname" >Nom :</form:label>
+	<form:input class="form-control" path="lastname"/>
 	<br>
-	<form:label path="username">Username :</form:label>
-	<form:input path="username" />
+	<form:label class="form-label" path="username" >Username : </form:label>
+	<form:input class="form-control" path="username"/>
 	<br>
-	<form:label path="email">Email :</form:label>
-	<form:input path="email" />
+	<form:label class="form-label" path="email" >Email : </form:label>
+	<form:input class="form-control" path="email"/>
 	<br>
-	<form:label path="password">Password :</form:label>
-	<form:password path="password" />
+	<form:label class="form-label" path="password" >Password : </form:label>
+	<form:password class="form-control" path="password"/>
 	<br>
-	<input type="submit" value="S'inscrire" />
+	<input class="btn btn-lg btn-primary btn-block" type="submit" value="S'inscrire" />
 </form:form>
-
+</div>
+</div>
 <div style="color: red;">
 	<spring:hasBindErrors name="inscription-form">
 		<c:forEach var="err" items="${errors.allErrors}">

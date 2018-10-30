@@ -20,26 +20,10 @@
 
 <link href="resources/css/bootstrap.min.css" rel="stylesheet"
 	id="bootstrap-css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="resources/css/style.css" rel="stylesheet" />
 
-<style>
-body {
-	padding-top: 54px;
-}
-
-@media ( min-width : 992px) {
-	body {
-		padding-top: 56px;
-	}
-}
-
-.portfolio-item {
-	margin-bottom: 30px;
-}
-
-.pagination {
-	margin-bottom: 30px;
-}
-</style>
 
 </head>
 
@@ -48,8 +32,11 @@ body {
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item active"><a class="nav-link" href="">Home
 				</a></li>
@@ -83,10 +70,12 @@ body {
 
 	<!-- Footer -->
 	<footer>
+	<hr />
+	<hr />
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
-					<span class="copyright">Copyright &copy; Your Website 2018</span>
+					<span class="copyright">Copyright &copy; North Cloud Radio 2018</span>
 				</div>
 				<div class="col-md-4">
 					<ul class="list-inline social-buttons">

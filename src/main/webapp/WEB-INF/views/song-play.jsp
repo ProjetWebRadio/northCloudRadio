@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="col-lg-12 text-center">
 		<div class="cover">
-			<img src="<c:url value="${coverUrl}" />"alt="..." class="img-thumbnail">
+			<img src="<c:url value="${coverUrl}" />"alt="..." class="cover-size">
 		</div>
 		<div class="lecteur">
 			<audio id="playlistLecteur" controls>
@@ -14,8 +14,8 @@
 			<div class="play"></div>
 			<div class="pause"></div>
 
-			<hr />
+		
 		</div>
-		<hr />
+		
 	</div>
 </div>

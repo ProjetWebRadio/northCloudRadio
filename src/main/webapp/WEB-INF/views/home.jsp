@@ -4,9 +4,8 @@
 
 <div class="row">
 	<div class="col-lg-12 text-center">
-	<c:out value="${user.name}"/>
 		<div class="cover">
-			<img id="cover" src="" alt="..." class="img-thumbnail">
+		<img id="cover" src="" alt="..." class="cover-size">
 		</div>
 		<div class="lecteur">
 			<audio id="myAudioPlayer" controls>
@@ -20,8 +19,8 @@
 			<div class="play"></div>
 			<div class="pause"></div>
 
-			<hr />
+		
 		</div>
-		<hr />
+		
 	</div>
 </div>
