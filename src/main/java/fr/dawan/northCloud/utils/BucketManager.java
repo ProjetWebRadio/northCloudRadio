@@ -44,7 +44,7 @@ public final class BucketManager {
 		File song = MultipartFileToFile.convert(s.getSongFile());
 		s3.putObject(new PutObjectRequest(BUCKET_NAME, s.getBucketKey(), song)
 				.withCannedAcl(CannedAccessControlList.PublicRead));
-		if (s.getCoverFile() != null) {
+		if (!s.getCoverFile().isEmpty()) {
 			File cover = MultipartFileToFile.convert(s.getCoverFile());
 			s3.putObject(new PutObjectRequest(BUCKET_NAME, s.getCoverKey(), cover)
 					.withCannedAcl(CannedAccessControlList.PublicRead));
@@ -55,7 +55,7 @@ public final class BucketManager {
 		final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_WEST_3)
 				.withCredentials(new ProfileCredentialsProvider()).build();
 		s3.deleteObject(new DeleteObjectRequest(BUCKET_NAME, s.getBucketKey()));
-		if (s.getCoverFile() != null) {
+		if (s.getCoverKey() != null) {
 			s3.deleteObject(new DeleteObjectRequest(BUCKET_NAME, s.getCoverKey()));
 		}
 
