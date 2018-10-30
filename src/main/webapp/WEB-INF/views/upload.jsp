@@ -33,7 +33,6 @@
 					<form:label path="name">Nom du morceau :</form:label>
 					<form:input path="name" />
 					<br>
-
 					<form:label path="category">Catégorie :</form:label>
 					<form:input path="category" />
 					<br>
@@ -47,6 +46,7 @@
 					<input type="submit" value="Upload" />
 				</form:form>
 				<c:if test="${ errors != null }">
+				
 					<div class="alert alert-danger">
 						<spring:hasBindErrors name="upload-form">
 							<c:forEach var="err" items="${errors.allErrors}">
@@ -56,6 +56,7 @@
 							</c:forEach>
 						</spring:hasBindErrors>
 					</div>
+				
 				</c:if>
 				<br>
 			</div>

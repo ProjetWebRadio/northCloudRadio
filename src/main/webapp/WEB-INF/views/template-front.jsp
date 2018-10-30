@@ -111,7 +111,7 @@
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
 	<script src="resources/js/scripts.js"></script>
-
+<script type="text/javascript" src="resources/jquery-ui/jquery.parallax-1.1.3.js"></script>
 </body>
 
 </html>

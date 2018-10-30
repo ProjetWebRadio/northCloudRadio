@@ -22,10 +22,10 @@ public class User {
 	@Column(nullable = false, length = 30)
 	private String lastname;
 
-	@Column(nullable = false, length = 30, unique=true)
+	@Column(nullable = false, length = 30, unique = true)
 	private String email;
 
-	@Column(nullable = false, length = 30, unique=true)
+	@Column(nullable = false, length = 30, unique = true)
 	private String username;
 
 	@Column(nullable = false, length = 30)
@@ -36,9 +36,9 @@ public class User {
 
 	@Column(nullable = false)
 	private boolean admin;
-	
+
 	@Column(nullable = false)
-	private boolean blocked;
+	private boolean banned;
 
 	@Version
 	private int version;
@@ -46,7 +46,7 @@ public class User {
 	public User() {
 		this.artiste = false;
 		this.admin = false;
-		this.blocked = false;
+		this.banned = false;
 	}
 
 	public Long getId() {
@@ -113,12 +113,12 @@ public class User {
 		this.admin = admin;
 	}
 
-	public boolean isBlocked() {
-		return blocked;
+	public boolean isBanned() {
+		return banned;
 	}
 
-	public void setBlocked(boolean blocked) {
-		this.blocked = blocked;
+	public void setBanned(boolean banned) {
+		this.banned = banned;
 	}
 
 }

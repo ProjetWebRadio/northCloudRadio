@@ -53,9 +53,9 @@ public class LoginController {
 		if (u != null && u.getPassword().equals(form.getPassword())) {
 			request.getSession().setAttribute("user_id", u.getId());
 			request.getSession().setAttribute("user_name", u.getUsername());
-//			if(u.isAdmin())
-//				return new ModelAndView("admin/dashboard");
-//			else
+			if(u.isAdmin())
+				return new ModelAndView("redirect:admin/dashboard");
+			else
 			return new ModelAndView("redirect:/");
 
 		} else {

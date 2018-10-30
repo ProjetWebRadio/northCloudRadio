@@ -18,7 +18,8 @@
 		<div class="boutons">
 			<div class="play"></div>
 			<div class="pause"></div>
-
+            <div class="next" ></div>
+            <div class ="previous"></div>
 		
 		</div>
 		

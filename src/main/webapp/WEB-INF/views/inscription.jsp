@@ -30,9 +30,8 @@
 	<br>
 	<input class="btn btn-lg btn-primary btn-block" type="submit" value="S'inscrire" />
 </form:form>
-</div>
-</div>
-<div style="color: red;">
+
+<div class="error-log">
 	<spring:hasBindErrors name="inscription-form">
 		<c:forEach var="err" items="${errors.allErrors}">
 			<c:out value="${err.field}" /> :
@@ -41,4 +40,5 @@
 		</c:forEach>
 	</spring:hasBindErrors>
 </div>
-
+</div>
+</div>

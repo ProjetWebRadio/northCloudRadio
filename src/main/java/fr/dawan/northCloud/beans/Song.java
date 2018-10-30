@@ -32,7 +32,7 @@ public class Song {
 	@Column
 	private String category;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 	private User user;
 
 	@Column

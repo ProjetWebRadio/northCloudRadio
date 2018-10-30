@@ -62,7 +62,15 @@ public class SongDao {
 				artistName);
 		return songs;
 	}
-
+   
+	@SuppressWarnings("unchecked")
+	@Transactional
+    public List<Song> findByUserId(long id){
+    	List<Song> songs = (List<Song>) hibernateTemplate.find("SELECT s FROM Song s WHERE s.user.id = ?",
+				id); 
+    return songs;
+    }
+	
 	@Transactional
 	public void delete(Song s) {
 		try {
