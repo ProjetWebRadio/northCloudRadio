@@ -1,0 +1,58 @@
+
+
+
+.portfolio-item {
+	margin-bottom: 30px;
+}
+
+.pagination {
+	margin-bottom: 30px;
+}
+.cover-size {
+	width:150px;
+	height:150px;
+	margin:30px;
+	
+	
+}
+footer{
+  position: absolute;
+  width: 100%; 
+  bottom: 0; left: 0; right: 0;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.h3 mb-3 {
+	text-align: center;
+	
+}
+.form-label {
+	
+}
+.error-log{
+	color: red;
+    text-align: justify;
+}
+#slide1 {
+   background: url(slide1-bg.jpg) center 0 no-repeat fixed;
+}
+
+#slide2 {
+   background: url(slide2-bg.jpg) center 0 no-repeat fixed;
+}
+
+#slide3 {
+   background: url(slide3-bg.jpg) center 0 no-repeat fixed;
+}

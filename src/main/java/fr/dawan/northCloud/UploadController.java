@@ -68,15 +68,15 @@ public class UploadController {
 			try {
 				songDao.save(s);
 			} catch (IOException e) {
-				model.put("msg", "Erreur: impossible d'upload le fichier");
-				e.printStackTrace();
+				model.put("errorMsg", "Erreur: impossible d'upload le fichier");
 			}
 		} else {
-			model.put("msg", "Erreur: le fichier n'est pas un fichier audio");
+			model.put("errorMsg", "Erreur: le fichier n'est pas un fichier audio");
 			return new ModelAndView("upload", model);
 		}
 
 		model.put("upload-form", form);
+		model.put("successMsg", "Votre musique a été ajoutée.");
 		return new ModelAndView("upload", model);
 	}
 

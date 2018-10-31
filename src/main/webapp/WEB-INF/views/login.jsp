@@ -3,23 +3,31 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ page isELIgnored="false" contentType="text/html; charset=UTF-8"%>
 
-<h1>Authentication</h1>
+
+	<div class="form-signin">
+	<div class="col-lg-12 text-center">
+	<img src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/logo.png" alt="...">
+<h1 class="h3 mb-3">Authentification</h1>
+
+
 
 <form:form method="post" action="authenticate"
 	modelAttribute="login-form">
-	<form:label path="username">Email :</form:label>
-	<form:input path="username" />
+	
+	<form:input path="username" class="form-control" placeholder="username"/>
 
 	<br />
 
-	<form:label path="password">Mot de passe :</form:label>
-	<form:password path="password" />
+
+	<form:password path="password" class="form-control" placeholder="password" />
 	<br />
-	<input type="submit" value="Connect" />
+	<input class="btn btn-lg btn-primary btn-block" type="submit" value="Connect" />
 </form:form>
+
+
 <div>${msg}</div>
 
-<div style="color: red;">
+<div class="error-log">
 	<spring:hasBindErrors name="login-form">
 		<c:forEach var="err" items="${errors.allErrors}">
 			<c:out value="${err.field}" /> :
@@ -27,4 +35,6 @@
 			<br />
 		</c:forEach>
 	</spring:hasBindErrors>
+</div>
+</div>
 </div>
