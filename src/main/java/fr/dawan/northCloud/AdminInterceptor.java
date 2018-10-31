@@ -22,11 +22,13 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		if (requestedURI.contains("/admin")) {
 			HttpSession session = request.getSession();
 			if (session.getAttribute("user_id") == null) {
-				response.sendRedirect("../");
+				response.sendRedirect(request.getContextPath() );
+				return false;
 			} else {
 				User u = userDao.findById((long) session.getAttribute("user_id"));
 				if(u == null || !u.isAdmin()) {
-					response.sendRedirect("../");
+					response.sendRedirect(request.getContextPath() );
+					return false;
 				}
 			}
 		} 

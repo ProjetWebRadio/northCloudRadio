@@ -26,7 +26,7 @@
 						<c:otherwise>Aucune couverture</c:otherwise>
 					</c:choose></td>
 				<td><a href="admin/songs/delete?id=${song.id }">Supprimer
-						la musique</a></td>
+						la musique</a> / <a href="admin/songs/play?id=${song.id }">Ecouter la musique</a> </td>
 			</tr>
 		</c:forEach>
 	</tbody>

@@ -20,7 +20,6 @@
 			<div class="pause"></div>
             <div class="next" ></div>
             <div class ="previous"></div>
-			<hr />
 		</div>
 		
 	</div>
