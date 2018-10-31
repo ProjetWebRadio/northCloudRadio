@@ -7,11 +7,10 @@
 
 <!-- Contact -->
 <section id="contact">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<h2 class="section-heading text-uppercase">Upload</h2>
-				<h3 class="section-subheading text-muted">Postez votre morceau</h3>
+		<div class="form-signin">
+	<div class="col-lg-12 text-center">
+				
+				<h2 class="section-subheading text-muted">Postez votre morceau</h2>
 			</div>
 		</div>
 
@@ -31,19 +30,19 @@
 				<form:form method="post" action="upload"
 					enctype="multipart/form-data" modelAttribute="upload-form">
 					<form:label path="name">Nom du morceau :</form:label>
-					<form:input path="name" />
+					<form:input class="form-control" path="name" />
 					<br>
 					<form:label path="category">Catégorie :</form:label>
-					<form:input path="category" />
-					<br>
+					<form:input class="form-control" path="category" />
+					<br />
 					<form:label path="songFile">Choisir une musique :</form:label>
-					<input type="file" id="songFile" name="songFile">
+					<input class="btn btn-md btn-primary" type="file" id="songFile" name="songFile">
 
-					<br>
+					<br /><br />
 					<form:label path="coverFile">Choisir une cover :</form:label>
-					<input type="file" id="coverFile" name="coverFile">
-					<br>
-					<input type="submit" value="Upload" />
+					<input class="btn btn-md btn-primary" type="file" id="coverFile" name="coverFile">
+					<br />
+					<input class="btn btn-md btn-primary" type="submit" value="Upload" />
 				</form:form>
 				<c:if test="${ errors != null }">
 				
@@ -61,7 +60,6 @@
 				<br>
 			</div>
 		</div>
-	</div>
 
 </section>
 

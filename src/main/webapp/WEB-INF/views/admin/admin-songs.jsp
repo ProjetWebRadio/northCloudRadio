@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<h1>Admin dashboard: liste des musiques</h1>
+<h1 class="h3 mb-3">Admin dashboard: liste des musiques</h1>
 
 <table class="table">
 	<thead>
@@ -25,8 +25,8 @@
 						<c:when test="${not empty song.cover }">${song.coverUrl }</c:when>
 						<c:otherwise>Aucune couverture</c:otherwise>
 					</c:choose></td>
-				<td><a href="admin/songs/delete?id=${song.id }">Supprimer
-						la musique</a></td>
+				<td><button type="button" class="btn btn-danger "><a class="button-delete text-white" href="admin/songs/delete?id=${song.id }">Supprimer
+						la musique</a></button></td>
 			</tr>
 		</c:forEach>
 	</tbody>
