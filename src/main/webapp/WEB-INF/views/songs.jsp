@@ -3,10 +3,14 @@
 <c:if test="${not empty param.artistName }">
 	Artiste : ${param.artistName}
 </c:if>
+<c:if test="${not empty msg }">
+	<p>${msg }</p>
+</c:if>
 <table class="table">
 	<thead>
 		<tr>
 			<th>Nom du morceau</th>
+			<th>Cat�gorie</th>
 			<c:if test="${empty param.artistName }">
 				<th>Nom de l'artiste</th>
 			</c:if>
@@ -17,20 +21,23 @@
 		<c:forEach var="song" items="${songs}">
 			<tr>
 				<td>${song.name}</td>
+				<td>${song.category }</td>
 				<c:if test="${empty param.artistName }">
-					<td>${song.user.username }<td>
+					<td>${song.user.username }
+					<td>
 				</c:if>
 				<td>
 					<button type="button" class="btn btn-primary"><a class="button-primary text-white" href="songs/play/${song.id }">Ecouter le morceau</a></button>
 				</td>
 			</tr>
 		</c:forEach>
-
 	</tbody>
-
 </table>
 
-
+<div>
+	<c:if test="${page > 1 }"><a href="songs?page=${ page -1 }">Page pr�c�dente</a></c:if>
+	<c:if test="${page < maxPage }"><a href="songs?page=${ page +1 }">Page suivante</a></c:if>
+</div>
 
 
 

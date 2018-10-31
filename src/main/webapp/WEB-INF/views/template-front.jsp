@@ -23,15 +23,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="resources/css/style.css" rel="stylesheet" />
-<!--  <link rel="stylesheet" href="resources/jquery-ui/slick.css"/> -->
-<!--   <link rel="stylesheet" href="resources/jquery-ui/slick.css"/> -->
-<!-- <link rel="stylesheet"  href="resources/jquery-ui/slick-theme.css"/> -->
-
-<!-- slick-theme.css if you want default styling -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick-theme.css"/>
-
-
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 
@@ -84,9 +77,18 @@
 					<li class="nav-item"><a class="nav-link" href="inscription">Inscription</a></li>
 				</c:if>
 				<c:if test="${not empty sessionScope.user_name }">
+					<li class="nav-item"><a class="nav-link" href="profil">Mon
+							profil</a></li>
 					<li class="nav-item"><a class="nav-link" href="disconnect">Déconnexion</a></li>
 				</c:if>
 			</ul>
+			<form class="form-inline my-2 my-lg-0" method="get"
+				action="songs/search">
+				<input id="artist-search" class="form-control mr-sm-2" type="text"
+					placeholder="Cherchez un artiste" name="artistName"
+					autocomplete="off" />
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
 		</div>
 	</nav>
 
@@ -97,7 +99,6 @@
 
 	<!-- Footer -->
 	<footer>
-		<hr />
 		<hr />
 		<div class="container">
 			<div class="row">
@@ -149,11 +150,9 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
-	<script src="./resources/js/scripts.js"></script>
-	<!-- 	<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick.min.js"></script> -->
-
-
-
+	<script src="resources/js/scripts.js"></script>
+	<script src="resources/jquery-ui/jquery.parallax-1.1.3.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
 
 </html>

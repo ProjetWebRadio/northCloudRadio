@@ -27,27 +27,31 @@ public class UserDao {
 		return hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("FROM User").setFirstResult(start)
 				.setMaxResults(maxElts).list();
 	}
-	
-	@SuppressWarnings("unchecked")
-	@Transactional(readOnly = true)
-	public List<User> findAllArtists() {
-		return (List<User>) hibernateTemplate.find("FROM User u WHERE u.artiste = 1");
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Transactional(readOnly = true)
-	public List<User> findAllArtists(int start, int maxElts) {
-		return hibernateTemplate.getSessionFactory().getCurrentSession().createQuery("FROM User u WHERE u.artiste = 1").setFirstResult(start)
-				.setMaxResults(maxElts).list();
-	}
 
 	@Transactional(readOnly = true)
 	public User findById(long id) {
 		return hibernateTemplate.get(User.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
+	public User findByEmail(String email) {
+		List<User> users = (List<User>) hibernateTemplate.find("FROM User u WHERE u.email= ?", email);
+		if (users != null && users.size() > 0)
+			return users.get(0);
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
+	public List<User> findAllByUsername(String name) {
+		List<User> users = (List<User>) hibernateTemplate.find("FROM User u WHERE u.username like ? ", name + "%");
+		System.out.println("users size = " + users.size());
+		return users;
+	}
+
 	@Transactional
-	public void save(User u) throws Exception{
+	public void save(User u) throws Exception {
 		hibernateTemplate.save(u);
 	}
 
@@ -61,12 +65,4 @@ public class UserDao {
 		return (Long) hibernateTemplate.find("SELECT COUNT(c.id) FROM User c").get(0);
 	}
 
-	@SuppressWarnings("unchecked")
-	@Transactional(readOnly = true)
-	public User findByEmail(String email) {
-		List<User> users = (List<User>) hibernateTemplate.find("FROM User u WHERE u.email= ?", email);
-		if (users != null && users.size() > 0)
-			return users.get(0);
-		return null;
-	}
 }

@@ -6,7 +6,7 @@
 		<tr>
 			<th>Id</th>
 			<th>Nom</th>
-			<th>Catégorie</th>
+			<th>Catï¿½gorie</th>
 			<th>Artiste</th>
 			<th>Chemin de la musique</th>
 			<th>Chemin de la couverture</th>
@@ -27,12 +27,14 @@
 					</c:choose></td>
 				<td><button type="button" class="btn btn-danger "><a class="button-delete text-white" href="admin/songs/delete?id=${song.id }">Supprimer
 						la musique</a></button></td>
+				<td><a href="admin/songs/delete?id=${song.id }">Supprimer
+						la musique</a> / <a href="admin/songs/play?id=${song.id }">Ecouter la musique</a> </td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
 
 <div>
-	<c:if test="${page > 1 }"><a href="admin/songs?page=${ page -1 }">Page précédente</a></c:if>
+	<c:if test="${page > 1 }"><a href="admin/songs?page=${ page -1 }">Page prï¿½cï¿½dente</a></c:if>
 	<c:if test="${page < maxPage }"><a href="admin/songs?page=${ page +1 }">Page suivante</a></c:if>
 </div>

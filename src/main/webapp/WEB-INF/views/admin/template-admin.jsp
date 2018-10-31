@@ -58,6 +58,7 @@ body {
 					<li class="nav-item active"><a class="nav-link" href="#">Accueil
 							<span class="sr-only">(current)</span>
 					</a></li>
+					<li><a class="nav-link" href="admin/dashboard">Dashboard</a></li>
 					<li><a class="nav-link" href="admin/users">Utilisateurs</a></li>
 					<li class="nav-item"><a class="nav-link" href="admin/songs">Musiques</a>
 					</li>

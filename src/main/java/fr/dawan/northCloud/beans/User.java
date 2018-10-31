@@ -32,9 +32,6 @@ public class User {
 	private String password;
 
 	@Column(nullable = false)
-	private boolean artiste;
-
-	@Column(nullable = false)
 	private boolean admin;
 
 	@Column(nullable = false)
@@ -44,7 +41,6 @@ public class User {
 	private int version;
 
 	public User() {
-		this.artiste = false;
 		this.admin = false;
 		this.banned = false;
 	}
@@ -95,14 +91,6 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public boolean isArtiste() {
-		return artiste;
-	}
-
-	public void setArtiste(boolean artiste) {
-		this.artiste = artiste;
 	}
 
 	public boolean isAdmin() {

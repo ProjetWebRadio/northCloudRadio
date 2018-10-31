@@ -16,3 +16,8 @@
 		</c:forEach>
 	</tbody>
 </table>
+
+<div>
+	<c:if test="${page > 1 }"><a href="songs?page=${ page -1 }">Page précédente</a></c:if>
+	<c:if test="${page < maxPage }"><a href="songs?page=${ page +1 }">Page suivante</a></c:if>
+</div>

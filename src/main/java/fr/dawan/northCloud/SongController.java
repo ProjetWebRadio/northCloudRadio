@@ -24,23 +24,27 @@ public class SongController {
 	private SongDao songDao;
 
 	@RequestMapping(value = "/songs/search", method = RequestMethod.GET)
-	public ModelAndView listSongs(@RequestParam(name = "artistName", required = false) String artistName) {
+	public ModelAndView listSongs(@RequestParam(name = "username", required = false) String username) {
 		Map<String, Object> model = new HashMap<>();
 		List<Song> songs = null;
-		if (artistName != null && !artistName.equals("")) {
-			songs = songDao.findByArtistName(artistName);
+		if (username != null && !username.equals("")) {
+			songs = songDao.findByArtistName(username);
 		} else {
-			model.put("msg", "Aucun morceau trouvé pour l'artiste : " + artistName);
+			model.put("msg", "L'utilisateur "+username+" n'existe pas");
 		}
 		model.put("songs", songs);
 		return new ModelAndView("songs", model);
 	}
 
 	@RequestMapping(value = "/songs", method = RequestMethod.GET)
-	public ModelAndView listAllSongs() {
+	public ModelAndView listAllSongs(@RequestParam(name = "page", defaultValue = "1") int page) {
 		Map<String, Object> model = new HashMap<>();
-		List<Song> songs = songDao.findAll();
+		List<Song> songs = songDao.findAll((page - 1) * 10, 10);
+		long currentPage = page;
+		long maxPage = songDao.nbSongs() / 10 + 1;
 		model.put("songs", songs);
+		model.put("maxPage", maxPage);
+		model.put("page", currentPage);
 		return new ModelAndView("songs", model);
 	}
 
