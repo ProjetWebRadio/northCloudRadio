@@ -10,7 +10,7 @@
 }
 .cover-size {
 	width:150px;
-	height:150px;
+	height:auto;
 	margin:30px;
 	
 	
@@ -23,7 +23,6 @@ footer{
 
 .form-signin {
     width: 100%;
-    max-width: 330px;
     padding: 15px;
     margin: auto;
 }
@@ -41,12 +40,21 @@ footer{
 .form-label {
 	
 }
+.logo-menu{
+	height:30px;
+	margin:10px;
+	
+}
+.bg-light{
+	background-color: #89c4ff !important;
+}
 .error-log{
 	color: red;
     text-align: justify;
 }
+
 #slide1 {
-   background: url(slide1-bg.jpg) center 0 no-repeat fixed;
+   background: url(resources/jquery-ui/images/radio.jpg) center 0 no-repeat fixed;
 }
 
 #slide2 {

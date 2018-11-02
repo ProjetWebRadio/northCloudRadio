@@ -13,22 +13,19 @@
 <form:form method="post" action="inscription"
 	modelAttribute="inscription-form">
 	
-	<form:label class="form-label" path="name">Prenom</form:label>
-	<form:input class="form-control" path="name"/>
+
+	<form:input class="form-control" path="name" placeholder="Prenom"/>
 	<br>
-	<form:label class="form-label" path="lastname" >Nom :</form:label>
-	<form:input class="form-control" path="lastname"/>
+	<form:input class="form-control" path="lastname" placeholder="Nom"/>
 	<br>
-	<form:label class="form-label" path="username" >Username : </form:label>
-	<form:input class="form-control" path="username"/>
+
+	<form:input class="form-control" path="username" placeholder="Pseudo"/>
 	<br>
-	<form:label class="form-label" path="email" >Email : </form:label>
-	<form:input class="form-control" path="email"/>
+	<form:input class="form-control" path="email" placeholder="Email"/>
 	<br>
-	<form:label class="form-label" path="password" >Password : </form:label>
-	<form:password class="form-control" path="password"/>
+	<form:password class="form-control" path="password" placeholder="Mot de passe"/>
 	<br>
-	<input class="btn btn-lg btn-primary btn-block" type="submit" value="S'inscrire" />
+	<input class="btn btn-lg btn-primary" type="submit" value="S'inscrire" />
 </form:form>
 
 <div class="error-log">

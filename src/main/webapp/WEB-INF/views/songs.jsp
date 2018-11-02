@@ -10,7 +10,7 @@
 	<thead>
 		<tr>
 			<th>Nom du morceau</th>
-			<th>Catégorie</th>
+			<th>Catï¿½gorie</th>
 			<c:if test="${empty param.artistName }">
 				<th>Nom de l'artiste</th>
 			</c:if>
@@ -26,14 +26,16 @@
 					<td>${song.user.username }
 					<td>
 				</c:if>
-				<td><a href="songs/play/${song.id }">Ecouter le morceau</a></td>
+				<td>
+					<button type="button" class="btn btn-primary"><a class="button-primary text-white" href="songs/play/${song.id }">Ecouter le morceau</a></button>
+				</td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
 
 <div>
-	<c:if test="${page > 1 }"><a href="songs?page=${ page -1 }">Page précédente</a></c:if>
+	<c:if test="${page > 1 }"><a href="songs?page=${ page -1 }">Page prï¿½cï¿½dente</a></c:if>
 	<c:if test="${page < maxPage }"><a href="songs?page=${ page +1 }">Page suivante</a></c:if>
 </div>
 

@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<h1>Profil de ${user.username }</h1>
+<h1 class="h3 mb-3">Profil de ${user.username }</h1>
 
 
 <div>
@@ -8,10 +8,10 @@
 		<li>Nom: ${user.lastname }</li>
 		<li>Email: ${user.email }</li>
 		<li>Banni: <c:choose>
-				<c:when test="${user.banned == true }">Oui: <a
+				<c:when test="${user.banned == true }">Oui ||<a
 						href="admin/users/ban-unban?id=${user.id }">Débannir l'utilisateur</a>
 				</c:when>
-				<c:otherwise>Non: <a
+				<c:otherwise>Non ||<a
 						href="admin/users/ban-unban?id=${user.id }">Bannir
 						l'utilisateur</a>
 				</c:otherwise>

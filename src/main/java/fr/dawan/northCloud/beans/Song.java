@@ -134,7 +134,7 @@ public class Song {
 	}
 
 	public String getCoverKey() {
-		if (this.getCover() != null) {
+		if (this.getCover() != null && !this.getCover().equals("")) {
 			return this.getCover() + "-" + this.getId();
 		} else {
 			return null;
@@ -142,10 +142,10 @@ public class Song {
 	}
 
 	public String getCoverUrl() {
-		if (this.getCover() != null) {
+		if (this.getCoverKey() != null) {
 			return BucketManager.BUCKET_URL + this.getCoverKey();
 		} else {
-			return null;
+			return "https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/music-note.png";
 		}
 	}
 }

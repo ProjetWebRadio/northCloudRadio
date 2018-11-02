@@ -21,7 +21,7 @@
 
 	<form:password path="password" class="form-control" placeholder="password" />
 	<br />
-	<input class="btn btn-lg btn-primary btn-block" type="submit" value="Connect" />
+	<input class="btn btn-lg btn-primary" type="submit" value="Se connecter" />
 </form:form>
 
 
