@@ -1,9 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!-- Main  -->
 
-<div class="row">
-	<div class="col-lg-12 text-center">
+<div class="row" >
+
+	<div class="col-lg-12 text-center" >
+	<div class="jumbotron jumbotron-fluid">
 		<div class="cover">
 		<img id="cover" src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/music-note.png" alt="..." class="cover-size">
 		</div>
@@ -22,57 +25,123 @@
             <div class="next" ></div>
             <div class ="previous"></div>
 		</div>
-
+		</div>
+<hr>
 	</div>
-<!-- 	<div class="col-lg-12 text-center"> -->
-<!-- 	<div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'> -->
-<!--   <div><h3>1</h3></div> -->
-<!--   <div><h3>2</h3></div> -->
-<!--   <div><h3>3</h3></div> -->
-<!--   <div><h3>4</h3></div> -->
-<!--   <div><h3>5</h3></div> -->
-<!--   <div><h3>6</h3></div> -->
-<!-- </div> -->
-<!-- </div> -->
-	
+
+
 	
           <div class="col-8">
-          <p>  
-            <h2>Bienvenue sur notre radio</h2>
-            
-           Gr‚ce ‡ notre Webradio, DÈcouvrez les crÈations de nos artistes locaux.<br/> 
-           Retrouvez vos animateurs radio prÈfÈrÈs et la sÈlection des meilleurs tubes rÈgionaux</p>
+         
+            <h2>Bienvenue sur North Cloud Radio</h2>
+             <p>  
+           Gr√¢ce √† notre Webradio, d√©couvrez les cr√©ations de nos artistes locaux.<br/> 
+           Retrouvez vos animateurs radio pr√©f√©r√©s et la s√©lection des meilleurs tubes r√©gionaux.</p>
           </div>
           <div class="col-4">
            <p> 
-            <h2>…vËnements</h2>
+            <h2>√âv√®nements</h2>
            
           <ul class="list-group">
   <li class="list-group-item">Concerts</li>
   <li class="list-group-item">Festivals</li>
   <li class="list-group-item">Emissions</li>
 
-</ul> </p>
+</ul>
 </div>
 
     <div class="col-8">
-           <p>
+           
             <h2>North Cloud Radio Awards 2018</h2>
-             
-            North Cloud Radio Awards 2018 : dÈcouvrez le palmarËs
-Chaque annÈe, North Cloud Radio rÈcompense les meilleurs Artistes de la rÈgion gr‚ce aux North Cloud Radio Awards, des prix attribuÈs par les auditeurs de la station.</p>
+             <p>
+            North Cloud Radio Awards 2018 : d√©couvrez le palmar√®s.<br/>
+Chaque ann√©e, North Cloud Radio r√©compense les meilleurs Artistes de la r√©gion gr√¢ce aux North Cloud Radio Awards, des prix attribu√©s par les auditeurs de la station.</p>
             
           </div>
           <div class="col-4">
            <p>
             <h2>Playlists</h2>
             
-         <ul class="list-group">
-  <li>Rap</li>
-  <li>Hip-hop</li>
-  <li>Dance</li>
+         <ul class="list-group list-group-flush">
+  <li class="list-group-item"><a href="artists/${user.id}">Rap</a></li>
+  <li class="list-group-item"><a href="artists/${user.id}">Hip-hop</a></li>
+  <li class="list-group-item"><a href="artists/${user.id}">Dance</a></li>
 
 </ul>
 <p>
 </div>
+
+<hr>
 </div>
+
+ <div class="container">
+ <h1 class="display-4 text-center" >Les artistes NorthCloudRadio</h1>
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-3" >
+         <figure class="cap-bot">
+         <a href="artists/${user.id}">${user.username}
+   <img	src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8" alt="..." class="img-thumbnail"></a>
+  <figcaption class="figcaption">Artistes Deep House</figcaption>
+</figure>
+          </div>
+          <div class="col-md-3">
+          <figure class="cap-bot">
+          <a href="artists/${user.id}">${user.username}
+   <img	src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8" alt="..." class="img-thumbnail"></a>
+  <figcaption class="figcaption">Artistes House</figcaption>
+</figure>
+          </div>
+          <div class="col-md-3">
+          <figure class="cap-bot">
+          <a href="artists/${user.id}">${user.username}
+   <img	src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8" alt="..." class="img-thumbnail"></a>
+  <figcaption class="figcaption">Artistes Hip-Hop</figcaption>
+</figure>
+          </div>
+           <div class="col-md-3">
+          <figure class="cap-bot">
+          <a href="artists/${user.id}">${user.username}
+   <img	src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8" alt="..." class="img-thumbnail"></a>
+  <figcaption class="figcaption">Artistes Rap</figcaption>
+</figure>
+          </div>
+          <div class="col-md-3">
+          <figure class="cap-bot">
+          <a href="artists/${user.id}">${user.username}
+   <img	src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8" alt="..." class="img-thumbnail"></a>
+  <figcaption class="figcaption">Artistes Dance</figcaption>
+</figure>
+          </div>
+          <div class="col-md-3">
+           <figure class="cap-bot">
+           <a href="artists/${user.id}">${user.username}
+   <img	src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8" alt="..." class="img-thumbnail"></a>
+  <figcaption class="figcaption">Artistes Rap</figcaption>
+</figure>
+          </div>
+          
+              <div class="col-md-3">
+                   <figure class="cap-bot">
+                   <a href="artists/${user.id}">${user.username}
+   <img	src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8" alt="..." class="img-thumbnail"></a>
+  <figcaption class="figcaption">Artistes Hip-Hop</figcaption>
+</figure>
+             
+          </div>
+          <div class="col-md-3">
+            
+            <figure class="cap-bot">
+            <a href="artists/${user.id}">${user.username}
+   <img	src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8" alt="..." class="img-thumbnail"></a>
+  <figcaption class="figcaption">Artistes House</figcaption>
+</figure>
+          </div>
+        </div>
+
+        <hr>
+     
+        
+</div>
+
+ 

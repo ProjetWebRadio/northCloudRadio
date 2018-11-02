@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <c:if test="${not empty param.artistName }">
 	Artiste : ${param.artistName}
 </c:if>
@@ -10,7 +11,7 @@
 	<thead>
 		<tr>
 			<th>Nom du morceau</th>
-			<th>Cat�gorie</th>
+			<th>Catégorie</th>
 			<c:if test="${empty param.artistName }">
 				<th>Nom de l'artiste</th>
 			</c:if>
@@ -27,7 +28,7 @@
 					<td>
 				</c:if>
 				<td>
-					<button type="button" class="btn btn-primary"><a class="button-primary text-white" href="songs/play/${song.id }">Ecouter le morceau</a></button>
+					<a href="songs/play/${song.id }"><button type="button" class="btn btn-primary">Ecouter le morceau</button></a>
 				</td>
 			</tr>
 		</c:forEach>
@@ -35,8 +36,17 @@
 </table>
 
 <div>
-	<c:if test="${page > 1 }"><a href="songs?page=${ page -1 }">Page pr�c�dente</a></c:if>
-	<c:if test="${page < maxPage }"><a href="songs?page=${ page +1 }">Page suivante</a></c:if>
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item">
+	<c:if test="${page > 1 }"><a class="page-link" href="#" tabindex="-1" href="songs?page=${ page -1 }">Page précédente</a></c:if>
+	</li>
+	  <li class="page-item">
+
+	<c:if test="${page < maxPage }"><a class="page-link" href="songs?page=${ page +1 }">Page suivante</a></c:if>
+	</li>
+  </ul>
+</nav>
 </div>
 
 

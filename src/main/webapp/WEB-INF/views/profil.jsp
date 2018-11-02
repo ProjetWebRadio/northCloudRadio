@@ -15,7 +15,7 @@
 		<c:forEach var="song" items="${songs}">
 			<tr>
 				<td>${song.name}</td>
-			    <td><a href="profil/songs/delete?id=${song.id}">Effaçer le morceau</a></td>
+			    <td><a href="profil/songs/delete?id=${song.id}"><button type="button" class="btn btn-danger ">Effacer le morceau</button></a></td>
 			</tr>
 		</c:forEach>
 	</tbody>

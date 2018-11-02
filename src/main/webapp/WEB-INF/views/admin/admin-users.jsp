@@ -9,7 +9,6 @@
 			<th>Nom</th>
 			<th>Email</th>
 			<th>Username</th>
-			<th>Artiste</th>
 			<th>Banni</th>
 		</tr>
 	</thead>
@@ -23,12 +22,8 @@
 				<td>${user.email}</td>
 				<td><a href="admin/users/${user.id}">${user.username}</a></td>
 				<td><c:choose>
-						<c:when test="${user.artiste == true }">Oui </c:when>
-						<c:otherwise>Non </c:otherwise>
-					</c:choose></td>
-				<td><c:choose>
-						<c:when test="${user.banned == true }">Oui ||  <a class="button-primary text-white" href="admin/users/ban-unban?id=${user.id }"><button type="button" class="btn btn-primary">Débannir l'utilisateur</a></button></c:when>
-						<c:otherwise>Non ||  <button type="button" class="btn btn-primary"><a class="button-primary text-white" href="admin/users/ban-unban?id=${user.id }">Bannir l'utilisateur</a></button></c:otherwise>
+						<c:when test="${user.banned == true }">Oui ||  <a href="admin/users/ban-unban?id=${user.id }"><button type="button" class="btn btn-primary">Débannir l'utilisateur</button></a></c:when>
+						<c:otherwise>Non ||  <a href="admin/users/ban-unban?id=${user.id }"><button type="button" class="btn btn-primary">Bannir l'utilisateur</button></a></c:otherwise>
 					</c:choose></td>
 			</tr>
 		</c:forEach>

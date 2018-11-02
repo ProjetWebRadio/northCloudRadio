@@ -3,11 +3,11 @@
 
 
 <div>
-	<ul>
-		<li>Prénom: ${user.name }</li>
-		<li>Nom: ${user.lastname }</li>
-		<li>Email: ${user.email }</li>
-		<li>Banni: <c:choose>
+	<ul class="list-group">
+		<li class="list-group">Prénom: ${user.name }</li>
+		<li class="list-group">Nom: ${user.lastname }</li>
+		<li class="list-group">Email: ${user.email }</li>
+		<li class="list-group">Banni: <c:choose>
 				<c:when test="${user.banned == true }">Oui ||<a
 						href="admin/users/ban-unban?id=${user.id }">Débannir l'utilisateur</a>
 				</c:when>
@@ -40,8 +40,8 @@
 						<c:when test="${not empty song.cover }">${song.coverUrl }</c:when>
 						<c:otherwise>Aucune couverture</c:otherwise>
 					</c:choose></td>
-				<td><a href="admin/songs/delete?id=${song.id }">Supprimer
-						la musique</a></td>
+				<td><a href="admin/songs/delete?id=${song.id }"><button type="button" class="btn btn-danger ">Supprimer
+						la musique</button></a></td>
 			</tr>
 		</c:forEach>
 	</tbody>
