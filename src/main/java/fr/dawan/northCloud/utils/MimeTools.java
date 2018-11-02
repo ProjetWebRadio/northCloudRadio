@@ -7,6 +7,10 @@ public class MimeTools {
 			return "audio/mp3";
 		else if(fileName.endsWith(".ogg"))
 			return "audio/ogg";
+		else if(fileName.endsWith(".wav"))
+	        return "audio/wav";
+		else if (fileName.endsWith(".flac"))
+			return "audio/flac";
 		return null;
 	}
 }

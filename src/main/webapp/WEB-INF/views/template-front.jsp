@@ -53,10 +53,13 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Genre </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Rap</a> <a class="dropdown-item"
-							href="#">House</a>
+						<a class="dropdown-item" href="songs/category/Hip-Hop">Hip-Hop</a> <a class="dropdown-item"
+							href="songs/category/Instrumental">Instrumental</a>
+						 <a class="dropdown-item" href="songs/category/Chill">Chill</a>
+						<a class="dropdown-item" href="songs/category/Electro">Electro</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Autres Genres</a>
+						<a class="dropdown-item" href="songs/category/AutreGenre">Autre genre</a>
+						
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="upload">Upload</a></li>
 				<li class="nav-item"><a class="nav-link" href="artists">Liste
@@ -79,7 +82,7 @@
 			<form class="form-inline my-2 my-lg-0" method="get"
 				action="songs/search">
 				<input id="artist-search" class="form-control mr-sm-2" type="text"
-					placeholder="Cherchez un artiste" name="artistName"
+					placeholder="Cherchez un artiste" name="username"
 					autocomplete="off" />
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
@@ -129,10 +132,12 @@
 	<!-- Bootstrap core JavaScript -->
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="./resources/jquery-ui/jquery.parallax-1.1.3.js"></script>
+	
 
 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
 		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

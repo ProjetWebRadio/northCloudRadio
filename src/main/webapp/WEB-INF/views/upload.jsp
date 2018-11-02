@@ -33,10 +33,10 @@
 					<form:input class="form-control" path="name" />
 					<br>
 					<form:label path="category">Catégorie :</form:label>
-					<form:input class="form-control" path="category" />
+					<form:input class="form-control" path="category" placeholder="Hip-Hop, Instrumental, Chill, Electro, Autre genre" />
 					<br />
 					<form:label path="songFile">Choisir une musique :</form:label>
-					<input class="btn btn-md btn-primary" type="file" id="songFile" name="songFile">
+					<input class="btn btn-md btn-primary" type="file" id="songFile" name="songFile" />
 
 					<br /><br />
 					<form:label path="coverFile">Choisir une cover :</form:label>

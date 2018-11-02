@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import fr.dawan.northCloud.beans.Song;
 import fr.dawan.northCloud.dao.SongDao;
 
-
 @Controller
 public class SongController {
 
@@ -30,7 +29,7 @@ public class SongController {
 		if (username != null && !username.equals("")) {
 			songs = songDao.findByArtistName(username);
 		} else {
-			model.put("msg", "L'utilisateur "+username+" n'existe pas");
+			model.put("msg", "L'utilisateur " + username + " n'existe pas");
 		}
 		model.put("songs", songs);
 		return new ModelAndView("songs", model);
@@ -48,8 +47,22 @@ public class SongController {
 		return new ModelAndView("songs", model);
 	}
 
+	@RequestMapping(value = "/songs/category/{category}", method = RequestMethod.GET)
+	public ModelAndView listSongsByCategory(@RequestParam(name = "page", defaultValue = "1") int page,
+			@PathVariable(name = "category") String category) {
+		Map<String, Object> model = new HashMap<>();
+		List<Song> songs = songDao.findByCategory(category);
+//		long currentPage = page;
+//		long maxPage = songDao.nbSongs() / 10 + 1;
+
+//		model.put("maxPage", maxPage);
+//		model.put("page", currentPage);
+		model.put("songs", songs);
+		return new ModelAndView("songs", model);
+	}
+
 	@RequestMapping(value = "/songs/play/{id}", method = RequestMethod.GET)
-	public ModelAndView playSong(@PathVariable(name="id") String songId) {
+	public ModelAndView playSong(@PathVariable(name = "id") String songId) {
 		Map<String, Object> model = new HashMap<>();
 		try {
 			Song song = songDao.findById(Long.parseLong(songId));
@@ -63,7 +76,7 @@ public class SongController {
 			return new ModelAndView("redirect:/");
 		}
 	}
- 
+
 	@RequestMapping("/delete")
 	public ModelAndView delete(Long id) throws IOException {
 		songDao.deleteById(id);

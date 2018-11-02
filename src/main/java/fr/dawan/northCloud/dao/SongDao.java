@@ -63,6 +63,7 @@ public class SongDao {
 		return songs;
 	}
    
+	
 	@SuppressWarnings("unchecked")
 	@Transactional
     public List<Song> findByUserId(long id){
@@ -70,6 +71,13 @@ public class SongDao {
 				id); 
     return songs;
     }
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Song> findByCategory(String category){
+		List<Song> songs = (List<Song>) hibernateTemplate.find("SELECT s FROM Song s WHERE s.category = ? ", category);
+		return songs;
+	}
 	
 	@Transactional
 	public void delete(Song s) {

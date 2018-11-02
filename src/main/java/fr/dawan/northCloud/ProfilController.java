@@ -34,13 +34,12 @@ public class ProfilController {
 	@RequestMapping("/profil/songs/delete")
 	public ModelAndView deleteSong(HttpServletRequest request,  @RequestParam(name ="id") long songId ) {
 		Song s = songDao.findById(songId);
-		String userId = (String) request.getSession().getAttribute("user_id");
-		if(userId != null && (Long.parseLong(userId)) == s.getUser().getId()) {	
+		long userId = (long) request.getSession().getAttribute("user_id");
+		if(userId == s.getUser().getId()) {	
 			songDao.delete(s);
         }
 		
 		return new ModelAndView("redirect:/profil");
 	}
-
 	
 }
