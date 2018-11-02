@@ -1,27 +1,27 @@
 function searchNextSong() {
-	$.ajax({
-		url : "/northCloudRadio/next-song",
-		type : "GET",
-		dataType : "text",
-		error : function(jqXHR, textStatus, errorThrown) {
-			alert("Erreur d'appel : " + textStatus);
-			console.log(errorThrown);
-		},
-		success : function(data, textStatus, jqXHR) {
-			console.log('result = ' + data);
-			var obj = JSON.parse(data);
-			$("audio#myAudioPlayer source").attr("src", obj.src);
-			$("audio#myAudioPlayer source").attr("type", obj.type);
-			$("img#cover").attr("src", obj.cover);
+	if (document.querySelector("#myAudioPlayer") != null) {
+		$.ajax({
+			url : "/northCloudRadio/next-song",
+			type : "GET",
+			dataType : "text",
+			error : function(jqXHR, textStatus, errorThrown) {
+				console.log(errorThrown);
+			},
+			success : function(data, textStatus, jqXHR) {
+				console.log('result = ' + data);
+				var obj = JSON.parse(data);
+				$("audio#myAudioPlayer source").attr("src", obj.src);
+				$("audio#myAudioPlayer source").attr("type", obj.type);
+				$("img#cover").attr("src", obj.cover);
+				$("p#song-title").html(obj.name);
+				var myPlayer = document.querySelector("#myAudioPlayer");
+				myPlayer.load();// recharge la source
+				myPlayer.play();
 
-			var myPlayer = document.querySelector("#myAudioPlayer");
-			myPlayer.load();// recharge la source
-			myPlayer.play();
-
-		}
-	});
+			}
+		});
+	}
 }
-
 
 $(function() {
 	$('#slide1').parallax("center", 0, 0.1, true);
@@ -60,7 +60,7 @@ $(function() {
 				success : function(data, textStatus, jqXHR) {
 					var obj = JSON.parse(data);
 					var usernames = [];
-					$.each(obj, function(i){
+					$.each(obj, function(i) {
 						usernames.push(obj[i].username);
 					})
 					response(usernames);
@@ -70,22 +70,6 @@ $(function() {
 	});
 
 	searchNextSong();
+	let footerHeight = $("footer").css("height");
+	$("body").css("margin-bottom", footerHeight);
 });
-
-/*
-function(request, response) {
-			let name = document.querySelector("#artist-search").value;
-			$.ajax({
-				url : "/northCloudRadio/get-users?name=" + name,
-				type : "GET",
-				dataType : "text",
-				error : function(jqXHR, textStatus, errorThrown) {
-					alert("Erreur d'appel : " + textStatus);
-					console.log(errorThrown);
-				},
-				success : function(data, textStatus, jqXHR) {
-					response(data)
-				}
-			});
-		}
-*/

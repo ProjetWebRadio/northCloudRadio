@@ -23,10 +23,9 @@ public class TestDataController {
 
 	@RequestMapping(value = "/test-data", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-
 		User u1 = new User();
 		u1.setEmail("halim@dawan.fr");
-//		 u1.setAdmin(true);
+		u1.setAdmin(true);
 		u1.setPassword("password");
 		u1.setUsername("halim");
 		u1.setName("halim");
@@ -36,8 +35,6 @@ public class TestDataController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		
 
 		return "home";
 	}

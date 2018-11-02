@@ -25,6 +25,6 @@ public class AudioRestController {
 		String nextFile = song.getUrl();
 		String cover = song.getCoverUrl();
 		String mimeType = MimeTools.getTypeMime(song.getOriginalName());
-		return "{\"src\":\""+nextFile+"\", \"type\":\""+mimeType+"\", \"cover\":\""+cover+ "\"}";
+		return "{\"name\":\""+song.getName()+"\",\"src\":\""+nextFile+"\", \"type\":\""+mimeType+"\", \"cover\":\""+cover+ "\"}";
 	}
 }

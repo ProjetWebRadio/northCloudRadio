@@ -3,9 +3,10 @@
 <div class="row">
 	<div class="col-lg-12 text-center">
 		<div class="cover">
-			<img src="<c:url value="${coverUrl}" />"alt="..." class="cover-size">
+			<img src="<c:url value="${coverUrl}" />" alt="..." class="cover-size">
 		</div>
 		<div class="lecteur">
+			<p id="song-title"></p>
 			<audio id="playlistLecteur" controls>
 				<source src='<c:out value="${songUrl}"/>' type="audio/mp3">
 			</audio>
@@ -13,11 +14,11 @@
 		<div class="boutons">
 			<div class="play"></div>
 			<div class="pause"></div>
-            <div class="next" ></div>
-            <div class ="previous"></div>
+			<div class="next"></div>
+			<div class="previous"></div>
 
-		
+
 		</div>
-		
+
 	</div>
 </div>
