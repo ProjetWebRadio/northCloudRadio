@@ -18,6 +18,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			// Si l'utilisateur n'est pas connecté, on le renvoie sur la page de connexions
 			if (session.getAttribute("user_id") == null) {
 				response.sendRedirect("authenticate");
+				return false;
 			}
 		} 
 		return true;

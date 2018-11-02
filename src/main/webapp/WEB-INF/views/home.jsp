@@ -21,6 +21,6 @@
             <div class="next" ></div>
             <div class ="previous"></div>
 		</div>
-		
+
 	</div>
 </div>

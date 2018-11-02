@@ -8,15 +8,14 @@
 	<thead>
 	<tr>
 	<td>Titre du morceau</td>
-	<td>Effaçer le morceau</td>
+	<td>Action</td>
 	</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="song" items="${songs}">
 			<tr>
 				<td>${song.name}</td>
-<!-- 				<td><input type="submit" value="Effacer le morceau" /></td> -->
-			    <td><a href="/profil/${song.delete}">Effaçer le morceau></a></td>
+			    <td><a href="profil/songs/delete?id=${song.id}">Effaçer le morceau</a></td>
 			</tr>
 		</c:forEach>
 	</tbody>

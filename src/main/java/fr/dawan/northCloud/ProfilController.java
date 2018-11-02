@@ -23,7 +23,7 @@ public class ProfilController {
 	private SongDao songDao;
 	
 	@RequestMapping("/profil")
-	public ModelAndView showProfil(HttpServletRequest request ) {
+	public ModelAndView showProfil(HttpServletRequest request) {
 		long userId = (long) request.getSession().getAttribute("user_id");
 		Map<String, Object> model = new HashMap<>();
 		List<Song> songs = songDao.findByUserId(userId);
@@ -32,10 +32,15 @@ public class ProfilController {
 	}
     
 	@RequestMapping("/profil/songs/delete")
-	public ModelAndView deleteSong(@RequestParam(name ="id") long songId) {
+	public ModelAndView deleteSong(HttpServletRequest request,  @RequestParam(name ="id") long songId ) {
 		Song s = songDao.findById(songId);
-		songDao.delete(s);
-		return new ModelAndView("redirect:profil/songs");
+		String userId = (String) request.getSession().getAttribute("user_id");
+		if(userId != null && (Long.parseLong(userId)) == s.getUser().getId()) {	
+			songDao.delete(s);
+        }
+		
+		return new ModelAndView("redirect:/profil");
 	}
 
+	
 }
