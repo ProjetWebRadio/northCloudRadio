@@ -25,7 +25,7 @@
 				<td>${song.category }</td>
 				<c:if test="${empty param.artistName }">
 					<td>${song.user.username }
-					<td>
+					</td>
 				</c:if>
 				<td>
 					<a href="songs/play/${song.id }"><button type="button" class="btn btn-primary">Ecouter le morceau</button></a>

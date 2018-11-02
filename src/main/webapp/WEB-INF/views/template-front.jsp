@@ -53,10 +53,13 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Genre </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Rap</a> <a class="dropdown-item"
-							href="#">House</a>
+						<a class="dropdown-item" href="songs/category/Hip-Hop">Hip-Hop</a> <a class="dropdown-item"
+							href="songs/category/Instrumental">Instrumental</a>
+						 <a class="dropdown-item" href="songs/category/Chill">Chill</a>
+						<a class="dropdown-item" href="songs/category/Electro">Electro</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Autres Genres</a>
+						<a class="dropdown-item" href="songs/category/AutreGenre">Autre genre</a>
+						
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="upload">Upload</a></li>
 				<li class="nav-item"><a class="nav-link" href="artists">Liste
@@ -143,6 +146,8 @@
 	
 	<script src="resources/jquery-ui/jquery.parallax-1.1.3.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script src="resources/js/scripts.js"></script>
 </body>
 
 </html>

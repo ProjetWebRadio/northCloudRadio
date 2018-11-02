@@ -12,7 +12,7 @@
 		<c:forEach var="artist" items="${ artists}">
 			<tr>
 				<td>${artist.username }</td>
-				<td><a href="songs/search?artistName=${artist.username }"><button type="button" class="btn btn-primary">Voir les musiques</button></a></td>
+				<td><a href="songs/search?username=${artist.username }"><button type="button" class="btn btn-primary">Voir les musiques</button></a></td>
 			</tr>
 		</c:forEach>
 	</tbody>

@@ -8,9 +8,12 @@
 	<div class="col-lg-12 text-center" >
 	<div class="jumbotron jumbotron-fluid">
 		<div class="cover">
-		<img id="cover" src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/music-note.png" alt="..." class="cover-size">
+			<img id="cover"
+				src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/music-note.png"
+				alt="..." class="cover-size">
 		</div>
 		<div class="lecteur">
+			<p id="song-title"></p>
 			<audio id="myAudioPlayer" controls>
 				<source src='<c:out value=""/>' type="">
 				<!-- <source src="http://demo.dawan.biz/mohamed/song.ogg"
@@ -18,12 +21,12 @@
  -->
 			</audio>
 		</div>
-		
+
 		<div class="boutons">
 			<div class="play"></div>
 			<div class="pause"></div>
-            <div class="next" ></div>
-            <div class ="previous"></div>
+			<div class="next"></div>
+			<div class="previous"></div>
 		</div>
 		</div>
 <hr>
@@ -67,8 +70,46 @@ Chaque année, North Cloud Radio récompense les meilleurs Artistes de la régio
   <li class="list-group-item"><a href="artists/${user.id}">Hip-hop</a></li>
   <li class="list-group-item"><a href="artists/${user.id}">Dance</a></li>
 
-</ul>
-<p>
+		<h2>Bienvenue sur notre radio</h2>
+
+		<p>
+			Gr�ce � notre Webradio, D�couvrez les cr�ations de nos artistes
+			locaux.<br /> Retrouvez vos animateurs radio pr�f�r�s et la
+			s�lection des meilleurs tubes r�gionaux
+		</p>
+	</div>
+	<div class="col-4">
+		<p>
+		<h2>Ev�nements</h2>
+
+		<ul class="list-group">
+			<li class="list-group-item">Concerts</li>
+			<li class="list-group-item">Festivals</li>
+			<li class="list-group-item">Emissions</li>
+
+		</ul>
+	</div>
+
+	<div class="col-8">
+
+		<h2>North Cloud Radio Awards 2018</h2>
+		<p>North Cloud Radio Awards 2018 : d�couvrez le palmar�s Chaque
+			ann�e, North Cloud Radio r�compense les meilleurs Artistes de la
+			r�gion gr�ce aux North Cloud Radio Awards, des prix attribu�s par les
+			auditeurs de la station.</p>
+
+	</div>
+	<div class="col-4">
+		<h2>Playlists</h2>
+
+		<ul class="list-group">
+			<li>Rap</li>
+			<li>Hip-hop</li>
+			<li>Dance</li>
+
+		</ul>
+		<p>
+	</div>
 </div>
 
 <hr>
