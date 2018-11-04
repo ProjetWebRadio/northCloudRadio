@@ -56,9 +56,13 @@
 						<a class="dropdown-item" href="songs/category/Hip-Hop">Hip-Hop</a> <a class="dropdown-item"
 							href="songs/category/Instrumental">Instrumental</a>
 						 <a class="dropdown-item" href="songs/category/Chill">Chill</a>
+						<a class="dropdown-item" href="songs/category/Trap">Trap</a>
+						<a class="dropdown-item" href="songs/category/Dub">Dub</a>
 						<a class="dropdown-item" href="songs/category/Electro">Electro</a>
+						<a class="dropdown-item" href="songs/category/HybridStyle">Hybrid Style</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="songs/category/AutreGenre">Autre genre</a>
+						
+						<a class="dropdown-item" href="songs/category/AutreGenre">Autre Genre</a>
 						
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="upload">Upload</a></li>

@@ -71,9 +71,9 @@
 		<h2>Playlists</h2>
 
 		<ul class="list-group list-group-flush">
-			<li class="list-group-item"><a href="artists/${user.id}">Rap</a></li>
-			<li class="list-group-item"><a href="artists/${user.id}">Hip-hop</a></li>
-			<li class="list-group-item"><a href="artists/${user.id}">Dance</a></li>
+			<li class="list-group-item"><a href="songs/category/Hip-Hop/${user.id}">Hip-Hop</a></li>
+			<li class="list-group-item"><a href="songs/category/Instrumental/${user.id}">Instrumental</a></li>
+			<li class="list-group-item"><a href="songs/category/Electro/${user.id}">Electro</a></li>
 		</ul>
 	</div>
 </div>
@@ -86,23 +86,7 @@
 	<div class="row">
 		<div class="col-md-3">
 			<figure class="cap-bot">
-				<a href="artists/${user.id}">${user.username} <img
-					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
-					alt="..." class="img-thumbnail"></a>
-				<figcaption class="figcaption">Artistes Deep House</figcaption>
-			</figure>
-		</div>
-		<div class="col-md-3">
-			<figure class="cap-bot">
-				<a href="artists/${user.id}">${user.username} <img
-					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
-					alt="..." class="img-thumbnail"></a>
-				<figcaption class="figcaption">Artistes House</figcaption>
-			</figure>
-		</div>
-		<div class="col-md-3">
-			<figure class="cap-bot">
-				<a href="artists/${user.id}">${user.username} <img
+				<a href="songs/category/Hip-Hop/${user.id}">${user.username} <img
 					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
 					alt="..." class="img-thumbnail"></a>
 				<figcaption class="figcaption">Artistes Hip-Hop</figcaption>
@@ -110,47 +94,66 @@
 		</div>
 		<div class="col-md-3">
 			<figure class="cap-bot">
-				<a href="artists/${user.id}">${user.username} <img
+				<a href="songs/category/Instrumental/${user.id}">${user.username} <img
 					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
 					alt="..." class="img-thumbnail"></a>
-				<figcaption class="figcaption">Artistes Rap</figcaption>
+				<figcaption class="figcaption">Artistes Instrumental</figcaption>
 			</figure>
 		</div>
 		<div class="col-md-3">
 			<figure class="cap-bot">
-				<a href="artists/${user.id}">${user.username} <img
+				<a href="songs/category/Chill/${user.id}">${user.username} <img
 					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
 					alt="..." class="img-thumbnail"></a>
-				<figcaption class="figcaption">Artistes Dance</figcaption>
+				<figcaption class="figcaption">Artistes Chill</figcaption>
 			</figure>
 		</div>
 		<div class="col-md-3">
 			<figure class="cap-bot">
-				<a href="artists/${user.id}">${user.username} <img
+				<a href="songs/category/Trap/${user.id}">${user.username} <img
 					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
 					alt="..." class="img-thumbnail"></a>
-				<figcaption class="figcaption">Artistes Rap</figcaption>
+				<figcaption class="figcaption">Artistes Trap</figcaption>
 			</figure>
 		</div>
+		
+		<div class="col-md-3">
+			<figure class="cap-bot">
+				<a href="songs/category/Dub/${user.id}">${user.username} <img
+					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
+					alt="..." class="img-thumbnail"></a>
+				<figcaption class="figcaption">Artistes Dub</figcaption>
+			</figure>
 
-		<div class="col-md-3">
-			<figure class="cap-bot">
-				<a href="artists/${user.id}">${user.username} <img
-					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
-					alt="..." class="img-thumbnail"></a>
-				<figcaption class="figcaption">Artistes Hip-Hop</figcaption>
-			</figure>
-
 		</div>
 		<div class="col-md-3">
 
 			<figure class="cap-bot">
-				<a href="artists/${user.id}">${user.username} <img
+				<a href="songs/category/Electro/${user.id}">${user.username} <img
 					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
 					alt="..." class="img-thumbnail"></a>
-				<figcaption class="figcaption">Artistes House</figcaption>
+				<figcaption class="figcaption">Artistes Electro</figcaption>
 			</figure>
 		</div>
+	<div class="col-md-3">
+
+			<figure class="cap-bot">
+				<a href="songs/category/HybridStyle/${user.id}">${user.username} <img
+					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
+					alt="..." class="img-thumbnail"></a>
+				<figcaption class="figcaption">Artistes Hybrid Style</figcaption>
+			</figure>
+		</div>
+	<div class="col-md-3">
+
+			<figure class="cap-bot">
+				<a href="songs/category/AutreGenre/${user.id}">${user.username} <img
+					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
+					alt="..." class="img-thumbnail"></a>
+				<figcaption class="figcaption">Artistes Autre Genre</figcaption>
+			</figure>
+		</div>
+	
 	</div>
 
 	<hr>

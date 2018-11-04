@@ -76,7 +76,7 @@ public class UploadController {
 		}
 
 		model.put("upload-form", form);
-		model.put("successMsg", "Votre musique a Ã©tÃ© ajoutÃ©e.");
+		model.put("successMsg", "Votre musique a été ajoutée.");
 		return new ModelAndView("upload", model);
 	}
 

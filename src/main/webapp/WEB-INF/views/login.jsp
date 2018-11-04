@@ -14,7 +14,7 @@
 <form:form method="post" action="authenticate"
 	modelAttribute="login-form">
 	
-	<form:input path="username" class="form-control" placeholder="username"/>
+	<form:input path="username" class="form-control" placeholder="email"/>
 
 	<br />
 

@@ -39,7 +39,7 @@
 <nav aria-label="...">
   <ul class="pagination">
     <li class="page-item">
-	<c:if test="${page > 1 }"><a class="page-link" href="#" tabindex="-1" href="songs?page=${ page -1 }">Page précédente</a></c:if>
+	<c:if test="${page > 1 }"><a class="page-link"  tabindex="-1" href="songs?page=${ page -1 }">Page précédente</a></c:if>
 	</li>
 	  <li class="page-item">
 
