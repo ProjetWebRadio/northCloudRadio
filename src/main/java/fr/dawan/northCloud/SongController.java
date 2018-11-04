@@ -66,10 +66,7 @@ public class SongController {
 		Map<String, Object> model = new HashMap<>();
 		try {
 			Song song = songDao.findById(Long.parseLong(songId));
-			String songUrl = song.getUrl();
-			String coverUrl = song.getCoverUrl();
-			model.put("songUrl", songUrl);
-			model.put("coverUrl", coverUrl);
+			model.put("song", song);
 			return new ModelAndView("song-play", model);
 		} catch (Exception e) {
 			e.printStackTrace();

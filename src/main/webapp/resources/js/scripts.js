@@ -8,12 +8,11 @@ function searchNextSong() {
 				console.log(errorThrown);
 			},
 			success : function(data, textStatus, jqXHR) {
-				console.log('result = ' + data);
 				var obj = JSON.parse(data);
-				$("audio#myAudioPlayer source").attr("src", obj.src);
-				$("audio#myAudioPlayer source").attr("type", obj.type);
-				$("img#cover").attr("src", obj.cover);
-				$("p#song-title").html(obj.name);
+				$("audio#myAudioPlayer source").attr("src", obj.url);
+				$("audio#myAudioPlayer source").attr("type", obj.mimeType);
+				$("img#cover").attr("src", obj.coverUrl);
+				$("p#song-title").html(obj.user.username+" - "+obj.name);
 				var myPlayer = document.querySelector("#myAudioPlayer");
 				myPlayer.load();// recharge la source
 				myPlayer.play();

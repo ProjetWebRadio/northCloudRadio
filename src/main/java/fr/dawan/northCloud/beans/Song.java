@@ -14,6 +14,7 @@ import javax.persistence.Version;
 import org.springframework.web.multipart.MultipartFile;
 
 import fr.dawan.northCloud.utils.BucketManager;
+import fr.dawan.northCloud.utils.MimeTools;
 
 @Entity
 @Table(name = "song")
@@ -123,6 +124,10 @@ public class Song {
 
 	public void setCoverFile(MultipartFile coverFile) {
 		this.coverFile = coverFile;
+	}
+	
+	public String getMimeType() {
+		return MimeTools.getTypeMime(this.getOriginalName());
 	}
 
 	public String getBucketKey() {
