@@ -44,7 +44,7 @@ public class AdminController {
 
 	@RequestMapping("admin/users/{id}")
 	public ModelAndView userManagement(@PathVariable(name = "id") long userId) {
-		Map<String, Object> model = new HashMap<>();
+		Map<String, Object> model = new HashMap<String, Object>();
 		User u = userDao.findById(userId);
 		List<Song> songs = songDao.findByArtistName(u.getUsername());
 		model.put("user", u);
@@ -62,7 +62,7 @@ public class AdminController {
 
 	@RequestMapping("/admin/songs")
 	public ModelAndView adminSongs(@RequestParam(name = "page", defaultValue = "1") int page) {
-		Map<String, Object> model = new HashMap<>();
+		Map<String, Object> model = new HashMap<String, Object>();
 		List<Song> songs = songDao.findAll((page - 1) * 5, 5);
 		long currentPage = page;
 		long maxPage = songDao.nbSongs() / 5 + 1;
@@ -74,7 +74,7 @@ public class AdminController {
 
 	@RequestMapping("admin/songs/{id}")
 	public ModelAndView songManagement(@PathVariable(name = "id") int songId) {
-		Map<String, Object> model = new HashMap<>();
+		Map<String, Object> model = new HashMap<String, Object>();
 		Song song = songDao.findById(songId);
 		model.put("song", song);
 		return new ModelAndView("admin/user-management", model);
