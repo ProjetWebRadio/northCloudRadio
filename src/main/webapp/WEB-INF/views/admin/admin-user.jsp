@@ -9,7 +9,8 @@
 		<li class="list-group">Email: ${user.email }</li>
 		<li class="list-group">Banni: <c:choose>
 				<c:when test="${user.banned == true }">Oui ||<a
-						href="admin/users/ban-unban?id=${user.id }">Débannir l'utilisateur</a>
+						href="admin/users/ban-unban?id=${user.id }">Débannir
+						l'utilisateur</a>
 				</c:when>
 				<c:otherwise>Non ||<a
 						href="admin/users/ban-unban?id=${user.id }">Bannir
@@ -40,8 +41,9 @@
 						<c:when test="${not empty song.cover }">${song.coverUrl }</c:when>
 						<c:otherwise>Aucune couverture</c:otherwise>
 					</c:choose></td>
-				<td><a href="admin/songs/delete?id=${song.id }"><button type="button" class="btn btn-danger ">Supprimer
-						la musique</button></a></td>
+				<td><a href="admin/songs/delete?id=${song.id }"><button
+							type="button" class="btn btn-danger ">Supprimer la
+							musique</button></a></td>
 			</tr>
 		</c:forEach>
 	</tbody>

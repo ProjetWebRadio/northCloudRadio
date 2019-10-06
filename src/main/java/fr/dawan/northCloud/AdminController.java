@@ -32,7 +32,7 @@ public class AdminController {
 
 	@RequestMapping("/admin/users")
 	public ModelAndView adminUsers(@RequestParam(name = "page", defaultValue = "1") int page) {
-		Map<String, Object> model = new HashMap<>();
+		Map<String, Object> model = new HashMap<String, Object>();
 		List<User> users = userDao.findAll((page - 1) * 5, 5);
 		long currentPage = page;
 		long maxPage = userDao.nbUsers() / 5 + 1;

@@ -53,17 +53,19 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Genre </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="songs/category/Hip-Hop">Hip-Hop</a> <a class="dropdown-item"
-							href="songs/category/Instrumental">Instrumental</a>
-						 <a class="dropdown-item" href="songs/category/Chill">Chill</a>
-						<a class="dropdown-item" href="songs/category/Trap">Trap</a>
-						<a class="dropdown-item" href="songs/category/Dub">Dub</a>
-						<a class="dropdown-item" href="songs/category/Electro">Electro</a>
-						<a class="dropdown-item" href="songs/category/HybridStyle">Hybrid Style</a>
+						<a class="dropdown-item" href="songs/category/Hip-Hop">Hip-Hop</a>
+						<a class="dropdown-item" href="songs/category/Instrumental">Instrumental</a>
+						<a class="dropdown-item" href="songs/category/Chill">Chill</a> <a
+							class="dropdown-item" href="songs/category/Trap">Trap</a> <a
+							class="dropdown-item" href="songs/category/Dub">Dub</a> <a
+							class="dropdown-item" href="songs/category/Electro">Electro</a> <a
+							class="dropdown-item" href="songs/category/HybridStyle">Hybrid
+							Style</a>
 						<div class="dropdown-divider"></div>
-						
-						<a class="dropdown-item" href="songs/category/AutreGenre">Autre Genre</a>
-						
+
+						<a class="dropdown-item" href="songs/category/AutreGenre">Autre
+							Genre</a>
+
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="upload">Upload</a></li>
 				<li class="nav-item"><a class="nav-link" href="artists">Liste
@@ -90,7 +92,7 @@
 					<li class="nav-item"><a class="nav-link" href="disconnect">Déconnexion</a></li>
 				</c:if>
 			</ul>
-			
+
 		</div>
 	</nav>
 
@@ -147,7 +149,7 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
-	
+
 	<script src="resources/jquery-ui/jquery.parallax-1.1.3.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 

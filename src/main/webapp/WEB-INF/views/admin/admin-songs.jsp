@@ -27,27 +27,30 @@
 						<c:when test="${not empty song.cover }">${song.coverUrl }</c:when>
 						<c:otherwise>Aucune couverture</c:otherwise>
 					</c:choose></td>
-				
-				<td><a href="admin/songs/delete?id=${song.id }"><button type="button" class="btn btn-danger ">Supprimer
-						la musique</button></a> <br/><br/> <a class="button primary text-white" href="admin/songs/play?id=${song.id }"><button type="button" class="btn btn-primary ">Ecouter la musique</button></a> </td>
+
+				<td><a href="admin/songs/delete?id=${song.id }"><button
+							type="button" class="btn btn-danger ">Supprimer la
+							musique</button></a> <br /> <br /> <a class="button primary text-white"
+					href="admin/songs/play?id=${song.id }"><button type="button"
+							class="btn btn-primary ">Ecouter la musique</button></a></td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
 
 <div>
-	
-	
-	
-	<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item">
-	<c:if test="${page > 1 }"><a href="admin/songs?page=${ page -1 }">Page précédente</a></c:if>
-	</li>
-	  <li class="page-item">
 
-	<c:if test="${page < maxPage }"><a class="page-link" href="admin/songs?page=${ page +1 }">Page suivante</a></c:if>
-	</li>
-  </ul>
-</nav>
+
+
+	<nav aria-label="...">
+		<ul class="pagination">
+			<li class="page-item"><c:if test="${page > 1 }">
+					<a href="admin/songs?page=${ page -1 }">Page précédente</a>
+				</c:if></li>
+			<li class="page-item"><c:if test="${page < maxPage }">
+					<a class="page-link" href="admin/songs?page=${ page +1 }">Page
+						suivante</a>
+				</c:if></li>
+		</ul>
+	</nav>
 </div>

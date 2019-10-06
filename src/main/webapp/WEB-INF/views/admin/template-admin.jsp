@@ -73,13 +73,14 @@ body {
 		<div>
 			<decorator:body />
 		</div>
-		<hr/>
+		<hr />
 		<!-- Footer -->
 		<footer>
 
 			<div class="row">
 				<div class="col-md-4">
-					<span class="copyright">Copyright &copy; North Cloud Radio 2018</span>
+					<span class="copyright">Copyright &copy; North Cloud Radio
+						2018</span>
 				</div>
 				<div class="col-md-4">
 					<ul class="list-inline social-buttons">

@@ -24,29 +24,28 @@
 				<td>${song.name}</td>
 				<td>${song.category }</td>
 				<c:if test="${empty param.artistName }">
-					<td>${song.user.username }
-					</td>
+					<td>${song.user.username }</td>
 				</c:if>
-				<td>
-					<a href="songs/play/${song.id }"><button type="button" class="btn btn-primary">Ecouter le morceau</button></a>
-				</td>
+				<td><a href="songs/play/${song.id }"><button type="button"
+							class="btn btn-primary">Ecouter le morceau</button></a></td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
 
 <div>
-<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item">
-	<c:if test="${page > 1 }"><a class="page-link"  tabindex="-1" href="songs?page=${ page -1 }">Page précédente</a></c:if>
-	</li>
-	  <li class="page-item">
-
-	<c:if test="${page < maxPage }"><a class="page-link" href="songs?page=${ page +1 }">Page suivante</a></c:if>
-	</li>
-  </ul>
-</nav>
+	<nav aria-label="...">
+		<ul class="pagination">
+			<li class="page-item"><c:if test="${page > 1 }">
+					<a class="page-link" tabindex="-1" href="songs?page=${ page -1 }">Page
+						précédente</a>
+				</c:if></li>
+			<li class="page-item"><c:if test="${page < maxPage }">
+					<a class="page-link" href="songs?page=${ page +1 }">Page
+						suivante</a>
+				</c:if></li>
+		</ul>
+	</nav>
 </div>
 
 

@@ -71,9 +71,12 @@
 		<h2>Playlists</h2>
 
 		<ul class="list-group list-group-flush">
-			<li class="list-group-item"><a href="songs/category/Hip-Hop/${user.id}">Hip-Hop</a></li>
-			<li class="list-group-item"><a href="songs/category/Instrumental/${user.id}">Instrumental</a></li>
-			<li class="list-group-item"><a href="songs/category/Electro/${user.id}">Electro</a></li>
+			<li class="list-group-item"><a
+				href="songs/category/Hip-Hop/${user.id}">Hip-Hop</a></li>
+			<li class="list-group-item"><a
+				href="songs/category/Instrumental/${user.id}">Instrumental</a></li>
+			<li class="list-group-item"><a
+				href="songs/category/Electro/${user.id}">Electro</a></li>
 		</ul>
 	</div>
 </div>
@@ -94,9 +97,11 @@
 		</div>
 		<div class="col-md-3">
 			<figure class="cap-bot">
-				<a href="songs/category/Instrumental/${user.id}">${user.username} <img
+				<a href="songs/category/Instrumental/${user.id}">${user.username}
+					<img
 					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
-					alt="..." class="img-thumbnail"></a>
+					alt="..." class="img-thumbnail">
+				</a>
 				<figcaption class="figcaption">Artistes Instrumental</figcaption>
 			</figure>
 		</div>
@@ -116,7 +121,7 @@
 				<figcaption class="figcaption">Artistes Trap</figcaption>
 			</figure>
 		</div>
-		
+
 		<div class="col-md-3">
 			<figure class="cap-bot">
 				<a href="songs/category/Dub/${user.id}">${user.username} <img
@@ -135,25 +140,29 @@
 				<figcaption class="figcaption">Artistes Electro</figcaption>
 			</figure>
 		</div>
-	<div class="col-md-3">
+		<div class="col-md-3">
 
 			<figure class="cap-bot">
-				<a href="songs/category/HybridStyle/${user.id}">${user.username} <img
+				<a href="songs/category/HybridStyle/${user.id}">${user.username}
+					<img
 					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
-					alt="..." class="img-thumbnail"></a>
+					alt="..." class="img-thumbnail">
+				</a>
 				<figcaption class="figcaption">Artistes Hybrid Style</figcaption>
 			</figure>
 		</div>
-	<div class="col-md-3">
+		<div class="col-md-3">
 
 			<figure class="cap-bot">
-				<a href="songs/category/AutreGenre/${user.id}">${user.username} <img
+				<a href="songs/category/AutreGenre/${user.id}">${user.username}
+					<img
 					src="https://s3.eu-west-3.amazonaws.com/mp3webradio-benjixxx/profil.jpg-8"
-					alt="..." class="img-thumbnail"></a>
+					alt="..." class="img-thumbnail">
+				</a>
 				<figcaption class="figcaption">Artistes Autre Genre</figcaption>
 			</figure>
 		</div>
-	
+
 	</div>
 
 	<hr>
